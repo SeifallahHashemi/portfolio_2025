@@ -1,4 +1,6 @@
 import Image from "next/image";
+import {ThemeColorToggle} from "@/components/Theme/ThemeColorToggle";
+import {ThemeModeToggle} from "@/components/Theme/ThemeModeToggle";
 
 export default function Home() {
   return (
@@ -19,6 +21,14 @@ export default function Home() {
               app/page.tsx
             </code>
             .
+            <div
+                className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t
+            from-white via-white dark:from-black dark:via-black lg:static lg:size-auto
+            lg:bg-none gap-x-1"
+            >
+              <ThemeColorToggle />
+              <ThemeModeToggle />
+            </div>
           </li>
           <li className="tracking-[-.01em]">
             Save and see your changes instantly.
