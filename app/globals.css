@@ -119,6 +119,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300 ease-out;
+    background-image: url("../public/img/noise.png");
+    background-size: 200px 200px;
+    background-position: 0 0;
   }
 }
