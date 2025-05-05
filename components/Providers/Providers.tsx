@@ -5,7 +5,7 @@ import ThemeDataProvider from "@/context/ThemeDataProvider";
 
 const Providers = ({children}: { children: React.ReactNode }) => {
     return (
-        <ThemeProvider enableSystem={true} attribute={"class"}>
+        <ThemeProvider enableSystem={true} attribute={"class"} defaultTheme={"system"}>
             <ThemeDataProvider>
                 {children}
             </ThemeDataProvider>
