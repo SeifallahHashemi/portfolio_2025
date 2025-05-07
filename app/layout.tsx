@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import {
+  iranSans,
+  iranYekanWebLight,
+  iranYekanWebRegular,
+} from '@/app/_fonts/font';
 import Providers from '@/components/Providers/Providers';
 
 const geistSans = Geist({
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="fa" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased !bg-background`}
+        className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background`}
       >
         <Providers>{children}</Providers>
       </body>
