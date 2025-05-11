@@ -1,3 +1,5 @@
+import Logo from '@/public/img/logo.png';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -25,7 +27,9 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link href={'/'}></Link>
+        <Link href={'/'}>
+          <Image src={Logo} alt={'Logo'} priority={true} placeholder={'blur'} />
+        </Link>
       </div>
     </header>
   );
