@@ -43,6 +43,8 @@ const MobileMenu = () => {
         size={'icon'}
         aria-label={'Toggle Menu'}
         onClick={onToggleMobileNav}
+        className={'md:hidden'}
+        key={'MobileMenu-1'}
       >
         <Menu />
       </Button>
@@ -63,6 +65,7 @@ const MobileMenu = () => {
           className={
             'w-full h-full fixed top-0 left-0 z-40 transform !ease-[cubic-bezier(0.7,0,0,1)] md:hidden bg-white dark:bg-zinc-900'
           }
+          key={'MobileMenu-2'}
         >
           <div className={'mt-6 px-8 flex justify-between items-center'}>
             <Link href={'/'}>
