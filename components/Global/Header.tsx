@@ -42,8 +42,14 @@ const Header = () => {
             height={35}
           />
         </Link>
-        <nav>
-          <ul></ul>
+        <nav className={'md:block hidden'}>
+          <ul className={'flex items-center space-x-8'}>
+            {data.map((item, index) => (
+              <li key={'navigation-' + index}>
+                <Link href={item.link}>{item.title}</Link>
+              </li>
+            ))}
+          </ul>
         </nav>
         <div className={'flex items-center space-x-4'}>
           <ThemeModeToggle />
