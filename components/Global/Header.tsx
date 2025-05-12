@@ -1,3 +1,4 @@
+import MobileMenu from '@/components/Global/MobileMenu';
 import { ThemeModeToggle } from '@/components/Theme/ThemeModeToggle';
 import Logo from '@/public/img/logo.png';
 import { Link } from 'next-view-transitions';
@@ -60,6 +61,7 @@ const Header = () => {
         </nav>
         <div className={'flex items-center space-x-4'}>
           <ThemeModeToggle />
+          <MobileMenu />
         </div>
       </div>
     </header>
