@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header
       className={
-        'px-6 py-6 border-b dark:border-b-zinc-900 border-b-zinc-200 text-sm z-40'
+        'px-6 py-6 border-b dark:border-b-zinc-900 border-b-zinc-200 text-sm z-40 font-iranSans md:mb-28 mb-10 md:px-16'
       }
     >
       <div className={'max-w-6xl mx-auto flex justify-between items-center'}>
@@ -44,9 +44,14 @@ const Header = () => {
         </Link>
         <nav className={'md:block hidden'}>
           <ul className={'flex items-center space-x-8'}>
-            {data.map((item, index) => (
+            {data.toReversed().map((item, index) => (
               <li key={'navigation-' + index}>
-                <Link href={item.link}>{item.title}</Link>
+                <Link
+                  href={item.link}
+                  className={'dark:text-white text-zinc-700 font-bold'}
+                >
+                  {item.title}
+                </Link>
               </li>
             ))}
           </ul>
