@@ -7,6 +7,7 @@ import {
   iranYekanWebRegular,
 } from '@/app/_fonts/font';
 import Providers from '@/components/Providers/Providers';
+import { ViewTransitions } from 'next-view-transitions';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,12 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background`}
-      >
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="fa" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background`}
+        >
+          <Providers>{children}</Providers>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
