@@ -25,11 +25,25 @@ const data: Data[] = [
 
 const Header = () => {
   return (
-    <header>
-      <div>
+    <header
+      className={
+        'px-6 py-6 border-b dark:border-b-zinc-800 border-b-zinc-200 text-sm'
+      }
+    >
+      <div className={'max-w-6xl mx-auto flex justify-center items-center'}>
         <Link href={'/'}>
-          <Image src={Logo} alt={'Logo'} priority={true} placeholder={'blur'} />
+          <Image
+            src={Logo}
+            alt={'Logo'}
+            priority={true}
+            placeholder={'blur'}
+            width={35}
+            height={35}
+          />
         </Link>
+        <nav>
+          <ul></ul>
+        </nav>
       </div>
     </header>
   );
