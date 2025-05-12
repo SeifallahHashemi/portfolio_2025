@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { BookMarked, FlaskConical, Menu, User } from 'lucide-react';
 import React, { useState } from 'react';
 
@@ -43,6 +43,23 @@ const MobileMenu = () => {
       >
         <Menu />
       </Button>
+      {toggleMobileNav && (
+        <motion.div
+          initial={{
+            translateX: '-100%',
+          }}
+          animate={{
+            translateX: '0%',
+          }}
+          exit={{
+            translateX: '-100%',
+          }}
+          transition={{
+            duration: 300,
+            ease: 'easeInOut',
+          }}
+        ></motion.div>
+      )}
     </AnimatePresence>
   );
 };
