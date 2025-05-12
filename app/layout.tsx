@@ -6,6 +6,7 @@ import {
   iranYekanWebLight,
   iranYekanWebRegular,
 } from '@/app/_fonts/font';
+import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
 import { ViewTransitions } from 'next-view-transitions';
 
@@ -35,7 +36,10 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background`}
         >
-          <Providers>{children}</Providers>
+          <Providers>
+            <Header />
+            {children}
+          </Providers>
         </body>
       </html>
     </ViewTransitions>
