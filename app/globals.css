@@ -39,6 +39,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-portfolio-primary: var(--porfolio-primary);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -80,6 +81,7 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --font-geist-sans: "sans-serif";
   --font-geist-mono: "monospace";
+  --porfolio-primary: oklch(0.769 0.188 70.08);
   interpolate-size: allow-keywords;
 }
 
