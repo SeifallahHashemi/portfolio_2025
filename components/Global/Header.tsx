@@ -44,7 +44,7 @@ const Header = () => {
           />
         </Link>
         <nav className={'md:block hidden'}>
-          <ul className={'flex items-center space-x-8'}>
+          <ul className={'flex items-center gap-x-8'}>
             {data.toReversed().map((item, index) => (
               <li key={'navigation-' + index}>
                 <Link
@@ -59,7 +59,7 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <div className={'flex items-center space-x-4'}>
+        <div className={'flex items-center gap-x-4'}>
           <ThemeModeToggle />
           <MobileMenu />
         </div>
