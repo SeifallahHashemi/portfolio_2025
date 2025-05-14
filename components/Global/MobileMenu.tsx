@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/public/img/logo.png';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BookMarked, FlaskConical, Menu, User, X } from 'lucide-react';
+import { cubicBezier } from 'motion';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -36,6 +37,8 @@ const MobileMenu = () => {
     });
   };
 
+  console.log(toggleMobileNav);
+
   return (
     <AnimatePresence mode={'popLayout'}>
       <Button
@@ -60,10 +63,12 @@ const MobileMenu = () => {
             translateX: '-100%',
           }}
           transition={{
-            duration: 300,
+            duration: 0.7,
+            type: 'tween',
+            ease: [0.25, 0.46, 0.45, 0.94],
           }}
           className={
-            'w-full h-full fixed top-0 left-0 z-40 transform !ease-[cubic-bezier(0.7,0,0,1)] md:hidden bg-white dark:bg-zinc-900'
+            'w-full h-full fixed top-0 left-0 z-40 transform md:hidden bg-white dark:bg-zinc-900'
           }
           key={'MobileMenu-2'}
         >
@@ -86,6 +91,7 @@ const MobileMenu = () => {
               <X />
             </Button>
           </div>
+          <nav className={'mt-6 flex flex-col'}></nav>
         </motion.div>
       )}
     </AnimatePresence>
