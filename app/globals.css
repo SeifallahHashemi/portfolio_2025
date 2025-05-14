@@ -44,6 +44,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --shadow-line: var(--shadow-portfolio);
 }
 
 :root {
@@ -82,6 +83,7 @@
   --font-geist-sans: "sans-serif";
   --font-geist-mono: "monospace";
   --porfolio-primary: oklch(0.769 0.188 70.08);
+  --shadow-portfolio: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   interpolate-size: allow-keywords;
 }
 
@@ -117,6 +119,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+  --shadow-portfolio: rgb(29, 29, 32) 0px 1px 0px;
 }
 
 @layer base {
