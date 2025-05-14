@@ -11,8 +11,8 @@ type BlurInProps = {
 
 const BlurIn = ({ text, className }: BlurInProps) => {
   const variants = {
-    initial: { filter: '10px', opacity: 0, translateY: '1rem' },
-    animate: { filter: '0px', opacity: 1, translateY: '0' },
+    initial: { filter: 'blur(0.5rem)', opacity: 0, translateY: '1rem' },
+    animate: { filter: 'blur(0)', opacity: 1, translateY: '0' },
   };
 
   return (
