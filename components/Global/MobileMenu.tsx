@@ -92,8 +92,22 @@ const MobileMenu = () => {
           </div>
           <nav className={'mt-6 flex flex-col'}>
             {data.map(({ title, href, Icon }) => (
-              <Link key={'link-' + title} href={href}>
-                <Icon />
+              <Link
+                key={'link-' + title}
+                href={href}
+                className={
+                  'flex flex-row-reverse justify-start items-center gap-x-2 p-5 group font-iranYWL text-lg border-b dark:border-b-zinc-800 border-b-zinc-200'
+                }
+                onClick={onToggleMobileNav}
+              >
+                <Icon
+                  aria-hidden={true}
+                  className={
+                    'text-zinc-500 group-hover:dark:text-white group-hover:text-zinc-800 duration-300'
+                  }
+                  strokeWidth={1}
+                  size={24}
+                />
                 {title}
               </Link>
             ))}
