@@ -10,7 +10,25 @@ type BlurInProps = {
 };
 
 const BlurIn = ({ text, className }: BlurInProps) => {
-  return <motion.p className={cn('', className)}>{text}</motion.p>;
+  const variants = {
+    initial: { filter: '10px', opacity: 0, translateY: '1rem' },
+    animate: { filter: '0px', opacity: 1, translateY: '0' },
+  };
+
+  return (
+    <motion.p
+      initial={'initial'}
+      animate={'animate'}
+      variants={variants}
+      transition={{ duration: 0.5 }}
+      className={cn(
+        'font-iranYWR font-bold drop-shadow-sm tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]',
+        className
+      )}
+    >
+      {text}
+    </motion.p>
+  );
 };
 
 export default BlurIn;
