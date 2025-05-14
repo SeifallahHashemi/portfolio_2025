@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header
       className={
-        'px-6 py-6 border-b dark:border-b-zinc-900 border-b-zinc-200 text-sm z-40 font-iranSans md:mb-28 mb-10 md:px-16'
+        'px-6 py-6 border-b dark:border-b-zinc-900 border-b-zinc-200 text-sm z-40 font-iranSans md:mb-20 mb-10 md:px-16'
       }
     >
       <div className={'max-w-6xl mx-auto flex justify-between items-center'}>
