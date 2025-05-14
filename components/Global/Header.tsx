@@ -49,7 +49,7 @@ const Header = () => {
         </Link>
         <nav className={'md:block hidden'}>
           <ul className={'flex items-center gap-x-8'}>
-            {data.toReversed().map((item, index) => (
+            {data.map((item, index) => (
               <li key={'navigation-' + index}>
                 <Link
                   href={item.link}
