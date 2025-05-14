@@ -7,9 +7,10 @@ import React from 'react';
 type BlurInProps = {
   text: string;
   className?: string;
+  delay?: number;
 };
 
-const BlurIn = ({ text, className }: BlurInProps) => {
+const BlurIn = ({ text, className, delay = 0 }: BlurInProps) => {
   const variants = {
     initial: { filter: 'blur(0.5rem)', opacity: 0, translateY: '1rem' },
     animate: { filter: 'blur(0)', opacity: 1, translateY: '0' },
@@ -20,7 +21,7 @@ const BlurIn = ({ text, className }: BlurInProps) => {
       initial={'initial'}
       animate={'animate'}
       variants={variants}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: delay }}
       className={cn(
         'font-iranYWR drop-shadow-sm tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]',
         className
