@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/public/img/logo.png';
 import { AnimatePresence, motion } from 'framer-motion';
 import { BookMarked, FlaskConical, Menu, User, X } from 'lucide-react';
-import { cubicBezier } from 'motion';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -12,18 +11,18 @@ import React, { useState } from 'react';
 const data = [
   {
     title: 'درباره من',
-    link: '/about-me',
-    icon: <User />,
+    href: '/about-me',
+    Icon: User,
   },
   {
     title: 'پروژه ها',
-    link: '/projects',
-    icon: <FlaskConical />,
+    href: '/projects',
+    Icon: FlaskConical,
   },
   {
     title: 'بلاگ',
-    link: '/blog',
-    icon: <BookMarked />,
+    href: '/blog',
+    Icon: BookMarked,
   },
 ] as const;
 
@@ -91,7 +90,14 @@ const MobileMenu = () => {
               <X />
             </Button>
           </div>
-          <nav className={'mt-6 flex flex-col'}></nav>
+          <nav className={'mt-6 flex flex-col'}>
+            {data.map(({ title, href, Icon }) => (
+              <Link key={'link-' + title} href={href}>
+                <Icon />
+                {title}
+              </Link>
+            ))}
+          </nav>
         </motion.div>
       )}
     </AnimatePresence>
