@@ -1,6 +1,8 @@
+'use client';
+
 import { cn } from '@/lib/utils';
-import { AnimationProps, motion } from 'motion/react';
-import React from 'react';
+import { AnimationProps, motion, useAnimation, useInView } from 'motion/react';
+import React, { RefObject, useEffect, useRef } from 'react';
 
 interface AnimateSectionProps extends AnimationProps {
   className?: string;
@@ -13,14 +15,25 @@ const AnimateSection = ({
   delay,
   children,
 }: AnimateSectionProps) => {
+  // hooks:
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref as RefObject<Element>, { once: true });
+  const controls = useAnimation();
   const variants = {
     initial: { filter: 'blur(0.5rem)', opacity: 0, translateY: '1rem' },
     animate: { filter: 'blur(0)', opacity: 1, translateY: '0' },
   };
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start('animate');
+    }
+  }, [controls, isInView]);
   return (
     <motion.div
+      ref={ref}
       initial={'initial'}
-      animate={'animate'}
+      animate={controls}
       variants={variants}
       transition={{ duration: 0.5, delay: delay }}
     >
