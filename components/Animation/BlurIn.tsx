@@ -22,7 +22,7 @@ const BlurIn = ({ text, className }: BlurInProps) => {
       variants={variants}
       transition={{ duration: 0.5 }}
       className={cn(
-        'font-iranYWR font-bold drop-shadow-sm tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]',
+        'font-iranYWR drop-shadow-sm tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]',
         className
       )}
     >
