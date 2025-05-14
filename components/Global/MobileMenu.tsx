@@ -2,8 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import Logo from '@/public/img/logo.png';
-import { AnimatePresence, motion } from 'framer-motion';
 import { BookMarked, FlaskConical, Menu, User, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React, { useState } from 'react';
