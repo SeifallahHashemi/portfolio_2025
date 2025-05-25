@@ -10,7 +10,6 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
-import { Link } from 'next-view-transitions';
 import React, { Fragment, useRef, useState } from 'react';
 
 interface Items {
