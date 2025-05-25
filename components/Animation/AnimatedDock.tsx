@@ -31,9 +31,10 @@ type AnimatedDockProps = {
   className?: string;
 };
 
-type DockIcon = Items & {
-  mouseX: MotionValue;
-};
+type DockItemIcon = DockItem & { mouseX: MotionValue };
+type DockDividerIcon = DockDivider & { mouseX: MotionValue };
+
+type DockIcon = DockItemIcon | DockDividerIcon;
 
 const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
   const mouseXPosition = useMotionValue(Infinity);
