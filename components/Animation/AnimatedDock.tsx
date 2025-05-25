@@ -47,7 +47,7 @@ const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
         mouseXPosition.set(Infinity);
       }}
       className={cn(
-        'fixed bottom-4 left-1/2 -translate-x-1/2 hidden md:flex justify-center items-center cursor-pointer gap-x-4 rounded-full border border-zinc-200 dark:border-zinc-900 bg-white/10 dark:bg-black/10 backdrop-blur-2xl h-16 py-2 px-4',
+        'fixed bottom-4 left-1/2 -translate-x-1/2 hidden md:flex justify-center items-center cursor-pointer gap-x-2 rounded-full border border-zinc-200 dark:border-zinc-900 bg-white/10 dark:bg-black/10 backdrop-blur-2xl h-16 py-2 px-4',
         className
       )}
     >
@@ -58,7 +58,7 @@ const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
   );
 };
 
-const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
+const DockIcon = ({ mouseX, icon, title, href, type, component }: DockIcon) => {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const distanceFromMouse = useTransform(mouseX, (val) => {
@@ -68,13 +68,40 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
   const widthTransform = useTransform(
     distanceFromMouse,
     [-150, 0, 150],
-    [40, 80, 40]
+    [30, 60, 30]
   );
   const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
+  const dividerTransform = useTransform(
+    distanceFromMouse,
+    [-80, 0, 80],
+    [20, 40, 20]
+  );
+  const dividerWidth = useSpring(dividerTransform, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+  if (type !== undefined && type === 'divider') {
+    return (
+      <motion.div
+        ref={ref}
+        style={{ width: dividerWidth }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={cn(
+          'relative flex justify-center items-center aspect-square rounded-full text-black shadow-lg dark:text-white'
+        )}
+      >
+        <div className={'w-10 aspect-square flex justify-center items-center'}>
+          {component}
+        </div>
+      </motion.div>
+    );
+  }
   return (
     <Link href={href}>
       <motion.div
