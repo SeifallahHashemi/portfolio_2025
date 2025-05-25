@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { ChefHat, FireExtinguisher } from 'lucide-react';
 import { MotionValue } from 'motion';
 import {
   AnimatePresence,
@@ -43,20 +42,15 @@ const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
         className
       )}
     >
-      <ChefHat />
-      <FireExtinguisher />
-      <ChefHat />
-      <FireExtinguisher />
-      <ChefHat />
-      <FireExtinguisher />
-      <ChefHat />
-      <FireExtinguisher />
+      {items.map((item) => (
+        <DockIcon key={item.title} mouseX={mouseXPosition} {...item} />
+      ))}
     </motion.div>
   );
 };
 
 const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
-  const [isHovered, setIsHovered] = useState<Boolean>(false);
+  const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const distanceFromMouse = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -80,7 +74,7 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={cn(
-          'relative flex justify-center items-center aspect-square rounded-full bg-white/20 text-black shadow-lg backdrop-blur-md dark:bg-black/20 dark:text-white'
+          'relative flex justify-center items-center aspect-square rounded-full text-black shadow-lg dark:text-white'
         )}
       >
         <AnimatePresence>
@@ -89,7 +83,7 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
               initial={{ opacity: 0, y: 10, x: '-50%' }}
               animate={{ opacity: 1, y: 0, x: '-50%' }}
               exit={{ opacity: 0, y: 2, x: '-50%' }}
-              className="absolute -top-8 left-1/2 w-fit -translate-x-1/2 whitespace-pre rounded-md border border-zinc-200 bg-white/80 px-2 py-0.5 text-xs text-neutral-700 dark:border-zinc-900 dark:bg-neutral-800 dark:text-white"
+              className="absolute -top-8 left-1/2 w-fit whitespace-pre rounded-md border border-zinc-200 bg-white/80 px-2 py-0.5 text-xs text-neutral-700 dark:border-zinc-900 dark:bg-neutral-800 dark:text-white"
             >
               {title}
             </motion.div>
