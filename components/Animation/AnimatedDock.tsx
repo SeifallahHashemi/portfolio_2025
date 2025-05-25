@@ -59,7 +59,7 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
   const widthTransform = useTransform(
     distanceFromMouse,
     [-150, 0, 150],
-    [30, 60, 30]
+    [40, 80, 40]
   );
   const width = useSpring(widthTransform, {
     mass: 0.1,
