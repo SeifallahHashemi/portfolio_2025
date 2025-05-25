@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import { Bell, Home, Search, User } from 'lucide-react';
 import { MotionValue } from 'motion';
 import {
   AnimatePresence,
@@ -26,6 +27,36 @@ type AnimatedDockProps = {
 
 type DockIcon = Items & {
   mouseX: MotionValue;
+};
+
+const DockAnimation = () => {
+  return (
+    <AnimatedDock
+      items={[
+        {
+          href: '/',
+          icon: <Home />,
+          title: 'Home',
+        },
+        {
+          href: '/search',
+          icon: <Search />,
+          title: 'Search',
+          divider: true,
+        },
+        {
+          href: '/notifications',
+          icon: <Bell />,
+          title: 'Notifications',
+        },
+        {
+          href: '/profile',
+          icon: <User />,
+          title: 'Profile',
+        },
+      ]}
+    />
+  );
 };
 
 const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
@@ -107,4 +138,4 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
   );
 };
 
-export default AnimatedDock;
+export default DockAnimation;
