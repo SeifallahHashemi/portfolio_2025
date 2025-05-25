@@ -9,6 +9,7 @@ import {
 import AnimatedDock from '@/components/Animation/AnimatedDock';
 import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
+import { Bell, Home, Search, User } from 'lucide-react';
 import { ViewTransitions } from 'next-view-transitions';
 
 const geistSans = Geist({
@@ -39,7 +40,30 @@ export default function RootLayout({
         >
           <Providers>
             <Header />
-            <AnimatedDock items={null} />
+            <AnimatedDock
+              items={[
+                {
+                  href: '/',
+                  icon: <Home />,
+                  title: 'Home',
+                },
+                {
+                  href: '/search',
+                  icon: <Search />,
+                  title: 'Search',
+                },
+                {
+                  href: '/notifications',
+                  icon: <Bell />,
+                  title: 'Notifications',
+                },
+                {
+                  href: '/profile',
+                  icon: <User />,
+                  title: 'Profile',
+                },
+              ]}
+            />
             {children}
           </Providers>
         </body>
