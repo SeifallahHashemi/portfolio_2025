@@ -6,6 +6,7 @@ import {
   iranYekanWebLight,
   iranYekanWebRegular,
 } from '@/app/_fonts/font';
+import AnimatedDock from '@/components/Animation/AnimatedDock';
 import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
 import { ViewTransitions } from 'next-view-transitions';
@@ -38,6 +39,7 @@ export default function RootLayout({
         >
           <Providers>
             <Header />
+            <AnimatedDock items={null} />
             {children}
           </Providers>
         </body>
