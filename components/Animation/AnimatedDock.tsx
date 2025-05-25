@@ -12,11 +12,19 @@ import {
 import { Link } from 'next-view-transitions';
 import React, { useRef, useState } from 'react';
 
-interface Items {
+interface DockItem {
+  type?: 'Items';
   title: string;
   href: string;
   icon: React.ReactNode;
 }
+
+interface DockDivider {
+  type: 'divider';
+  component: React.ReactNode;
+}
+
+type Items = DockItem | DockDivider;
 
 type AnimatedDockProps = {
   items: Items[];
