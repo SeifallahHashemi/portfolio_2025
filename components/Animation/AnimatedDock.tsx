@@ -10,12 +10,13 @@ import {
   useTransform,
 } from 'motion/react';
 import { Link } from 'next-view-transitions';
-import React, { useRef, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 
 interface Items {
   title: string;
   href: string;
   icon: React.ReactNode;
+  divider?: boolean;
 }
 
 type AnimatedDockProps = {
@@ -43,7 +44,16 @@ const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
       )}
     >
       {items.map((item) => (
-        <DockIcon key={item.title} mouseX={mouseXPosition} {...item} />
+        <Fragment key={item.title}>
+          <DockIcon key={item.title} mouseX={mouseXPosition} {...item} />
+          {item.divider && (
+            <div
+              className={cn(
+                'shrink-0 bg-zinc-200 dark:bg-zinc-800 w-px h-10/12'
+              )}
+            />
+          )}
+        </Fragment>
       ))}
     </motion.div>
   );
@@ -59,7 +69,7 @@ const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
   const widthTransform = useTransform(
     distanceFromMouse,
     [-150, 0, 150],
-    [40, 80, 40]
+    [40, 55, 40]
   );
   const width = useSpring(widthTransform, {
     mass: 0.1,
