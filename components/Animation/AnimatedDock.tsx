@@ -12,29 +12,20 @@ import {
 import { Link } from 'next-view-transitions';
 import React, { useRef, useState } from 'react';
 
-interface DockItem {
-  type?: 'Items';
+interface Items {
   title: string;
   href: string;
   icon: React.ReactNode;
 }
-
-interface DockDivider {
-  type: 'divider';
-  component: React.ReactNode;
-}
-
-type Items = DockItem | DockDivider;
 
 type AnimatedDockProps = {
   items: Items[];
   className?: string;
 };
 
-type DockItemIcon = DockItem & { mouseX: MotionValue };
-type DockDividerIcon = DockDivider & { mouseX: MotionValue };
-
-type DockIcon = DockItemIcon | DockDividerIcon;
+type DockIcon = Items & {
+  mouseX: MotionValue;
+};
 
 const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
   const mouseXPosition = useMotionValue(Infinity);
@@ -58,7 +49,7 @@ const AnimatedDock = ({ items, className }: AnimatedDockProps) => {
   );
 };
 
-const DockIcon = ({ mouseX, icon, title, href, type, component }: DockIcon) => {
+const DockIcon = ({ mouseX, icon, title, href }: DockIcon) => {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const distanceFromMouse = useTransform(mouseX, (val) => {
@@ -75,33 +66,6 @@ const DockIcon = ({ mouseX, icon, title, href, type, component }: DockIcon) => {
     stiffness: 150,
     damping: 12,
   });
-  const dividerTransform = useTransform(
-    distanceFromMouse,
-    [-80, 0, 80],
-    [20, 40, 20]
-  );
-  const dividerWidth = useSpring(dividerTransform, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
-  if (type !== undefined && type === 'divider') {
-    return (
-      <motion.div
-        ref={ref}
-        style={{ width: dividerWidth }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={cn(
-          'relative flex justify-center items-center aspect-square rounded-full text-black shadow-lg dark:text-white'
-        )}
-      >
-        <div className={'w-10 aspect-square flex justify-center items-center'}>
-          {component}
-        </div>
-      </motion.div>
-    );
-  }
   return (
     <Link href={href}>
       <motion.div
