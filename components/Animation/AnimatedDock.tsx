@@ -1,7 +1,8 @@
 'use client';
 
+import DockMenuThemeSwitcher from '@/components/Theme/DockMenuThemeSwitcher';
 import { cn } from '@/lib/utils';
-import { Bell, Home, Search, User } from 'lucide-react';
+import { Bell, Search, User } from 'lucide-react';
 import { MotionValue } from 'motion';
 import {
   AnimatePresence,
@@ -32,8 +33,8 @@ const DockAnimation = () => {
     <AnimatedDock
       items={[
         {
-          icon: <Home />,
-          title: 'Home',
+          icon: <DockMenuThemeSwitcher />,
+          title: 'تغییر تم',
         },
         {
           icon: <Search />,
