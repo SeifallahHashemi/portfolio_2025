@@ -6,7 +6,7 @@ import {
   iranYekanWebLight,
   iranYekanWebRegular,
 } from '@/app/_fonts/font';
-import DockAnimation from '@/components/Animation/AnimatedDock';
+import DockAnimation from '@/components/Animation/DockAnimation';
 import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
 import { ViewTransitions } from 'next-view-transitions';
