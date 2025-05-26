@@ -2,7 +2,7 @@
 
 import DockMenuThemeSwitcher from '@/components/Theme/DockMenuThemeSwitcher';
 import { cn } from '@/lib/utils';
-import { Hammer, Home, Notebook } from 'lucide-react';
+import { Github, Hammer, Home, Instagram, Notebook } from 'lucide-react';
 import { MotionValue } from 'motion';
 import {
   AnimatePresence,
@@ -36,6 +36,23 @@ const DockAnimation = () => {
         {
           icon: <DockMenuThemeSwitcher />,
           title: 'تغییر تم',
+          divider: true,
+        },
+        {
+          icon: (
+            <Link href={'/'}>
+              <Github />
+            </Link>
+          ),
+          title: 'گیت هاب',
+        },
+        {
+          icon: (
+            <Link href={'/'}>
+              <Instagram />
+            </Link>
+          ),
+          title: 'اینستاگرام',
           divider: true,
         },
         {
