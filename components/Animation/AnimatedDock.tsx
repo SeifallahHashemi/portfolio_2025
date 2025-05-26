@@ -2,7 +2,7 @@
 
 import DockMenuThemeSwitcher from '@/components/Theme/DockMenuThemeSwitcher';
 import { cn } from '@/lib/utils';
-import { Bell, Search, User } from 'lucide-react';
+import { Hammer, Home, Notebook } from 'lucide-react';
 import { MotionValue } from 'motion';
 import {
   AnimatePresence,
@@ -11,6 +11,7 @@ import {
   useSpring,
   useTransform,
 } from 'motion/react';
+import { Link } from 'next-view-transitions';
 import React, { Fragment, useRef, useState } from 'react';
 
 interface Items {
@@ -38,16 +39,28 @@ const DockAnimation = () => {
           divider: true,
         },
         {
-          icon: <Search />,
-          title: 'Search',
+          icon: (
+            <Link href={'/blog'}>
+              <Notebook />
+            </Link>
+          ),
+          title: 'وبلاگ',
         },
         {
-          icon: <Bell />,
-          title: 'Notifications',
+          icon: (
+            <Link href={'/projects'}>
+              <Hammer />
+            </Link>
+          ),
+          title: 'پروژه ها',
         },
         {
-          icon: <User />,
-          title: 'Profile',
+          icon: (
+            <Link href={'/'}>
+              <Home />
+            </Link>
+          ),
+          title: 'خانه',
         },
       ]}
     />
@@ -109,7 +122,7 @@ const DockIcon = ({ mouseX, icon, title }: DockIcon) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative flex justify-center items-center aspect-square rounded-full text-black dark:text-white'
+        'relative flex justify-center items-center aspect-square rounded-full text-black dark:text-white cursor-pointer'
       )}
     >
       <AnimatePresence>
