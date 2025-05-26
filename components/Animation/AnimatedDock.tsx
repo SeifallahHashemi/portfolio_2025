@@ -35,11 +35,11 @@ const DockAnimation = () => {
         {
           icon: <DockMenuThemeSwitcher />,
           title: 'تغییر تم',
+          divider: true,
         },
         {
           icon: <Search />,
           title: 'Search',
-          divider: true,
         },
         {
           icon: <Bell />,
