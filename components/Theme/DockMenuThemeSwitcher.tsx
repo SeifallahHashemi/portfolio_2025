@@ -9,7 +9,7 @@ const DockMenuThemeSwitcher = () => {
   const { setTheme, theme } = useTheme();
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       size="icon"
       className={'cursor-pointer'}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
