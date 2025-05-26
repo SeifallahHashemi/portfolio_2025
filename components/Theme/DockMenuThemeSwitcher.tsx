@@ -11,7 +11,7 @@ const DockMenuThemeSwitcher = () => {
     <Button
       variant="ghost"
       size="icon"
-      className={'cursor-pointer'}
+      className={'cursor-pointer hover:!bg-transparent'}
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >
       <Sun
