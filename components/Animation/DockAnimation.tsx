@@ -1,6 +1,8 @@
 'use client';
 
 import DockMenuThemeSwitcher from '@/components/Theme/DockMenuThemeSwitcher';
+import Github from '@/components/ui/github';
+import Instagram from '@/components/ui/instagram';
 import { cn } from '@/lib/utils';
 import { Hammer, Home, Notebook } from 'lucide-react';
 import { MotionValue } from 'motion';
@@ -39,11 +41,19 @@ const DockAnimation = () => {
           divider: true,
         },
         {
-          icon: <Link href={'/'}></Link>,
+          icon: (
+            <Link href={'/'}>
+              <Github />
+            </Link>
+          ),
           title: 'گیت هاب',
         },
         {
-          icon: <Link href={'/'}></Link>,
+          icon: (
+            <Link href={'/'}>
+              <Instagram />
+            </Link>
+          ),
           title: 'اینستاگرام',
           divider: true,
         },
