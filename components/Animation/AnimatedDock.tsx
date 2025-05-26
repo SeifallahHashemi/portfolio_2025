@@ -118,7 +118,7 @@ const DockIcon = ({ mouseX, icon, title }: DockIcon) => {
             initial={{ opacity: 0, y: 10, x: '-50%' }}
             animate={{ opacity: 1, y: 0, x: '-50%' }}
             exit={{ opacity: 0, y: 2, x: '-50%' }}
-            className="absolute -top-8 left-1/2 w-fit whitespace-pre rounded-md border border-zinc-200 bg-white/80 px-2 py-0.5 text-xs text-neutral-700 dark:border-zinc-900 dark:bg-neutral-800 dark:text-white"
+            className="absolute -top-8 left-1/2 w-fit whitespace-pre rounded-md border border-zinc-900 bg-slate-900 px-2 py-0.5 font-iranYWL text-xs text-zinc-200 dark:border-zinc-300 dark:bg-zinc-200 dark:text-zinc-800"
           >
             {title}
           </motion.div>
