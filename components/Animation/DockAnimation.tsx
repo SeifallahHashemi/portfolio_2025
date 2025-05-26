@@ -42,7 +42,12 @@ const DockAnimation = () => {
         },
         {
           icon: (
-            <Link href={'/'}>
+            <Link
+              href={'/'}
+              className={
+                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+              }
+            >
               <Github />
             </Link>
           ),
@@ -50,7 +55,12 @@ const DockAnimation = () => {
         },
         {
           icon: (
-            <Link href={'/'}>
+            <Link
+              href={'/'}
+              className={
+                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+              }
+            >
               <Instagram />
             </Link>
           ),
@@ -59,24 +69,39 @@ const DockAnimation = () => {
         },
         {
           icon: (
-            <Link href={'/blog'}>
-              <Notebook />
+            <Link
+              href={'/blog'}
+              className={
+                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+              }
+            >
+              <Notebook size={22} />
             </Link>
           ),
           title: 'وبلاگ',
         },
         {
           icon: (
-            <Link href={'/projects'}>
-              <Hammer />
+            <Link
+              href={'/projects'}
+              className={
+                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+              }
+            >
+              <Hammer size={22} />
             </Link>
           ),
           title: 'پروژه ها',
         },
         {
           icon: (
-            <Link href={'/'}>
-              <Home />
+            <Link
+              href={'/'}
+              className={
+                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+              }
+            >
+              <Home size={22} />
             </Link>
           ),
           title: 'خانه',
@@ -141,7 +166,7 @@ const DockIcon = ({ mouseX, icon, title }: DockIcon) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        'relative flex justify-center items-center aspect-square rounded-full text-black dark:text-white cursor-pointer'
+        'relative flex justify-center items-center aspect-square rounded-full text-black dark:text-white'
       )}
     >
       <AnimatePresence>
