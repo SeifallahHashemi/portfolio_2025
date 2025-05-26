@@ -10,6 +10,8 @@ import {
   AnimatePresence,
   motion,
   useMotionValue,
+  useMotionValueEvent,
+  useScroll,
   useSpring,
   useTransform,
 } from 'motion/react';
@@ -32,82 +34,105 @@ type DockIcon = Items & {
 };
 
 const DockAnimation = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setIsVisible(latest > 84);
+  });
   return (
-    <AnimatedDock
-      items={[
-        {
-          icon: <DockMenuThemeSwitcher />,
-          title: 'تغییر تم',
-          divider: true,
-        },
-        {
-          icon: (
-            <Link
-              href={'/'}
-              className={
-                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
-              }
-            >
-              <Github />
-            </Link>
-          ),
-          title: 'گیت هاب',
-        },
-        {
-          icon: (
-            <Link
-              href={'/'}
-              className={
-                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
-              }
-            >
-              <Instagram />
-            </Link>
-          ),
-          title: 'اینستاگرام',
-          divider: true,
-        },
-        {
-          icon: (
-            <Link
-              href={'/blog'}
-              className={
-                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
-              }
-            >
-              <Notebook size={22} />
-            </Link>
-          ),
-          title: 'وبلاگ',
-        },
-        {
-          icon: (
-            <Link
-              href={'/projects'}
-              className={
-                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
-              }
-            >
-              <Hammer size={22} />
-            </Link>
-          ),
-          title: 'پروژه ها',
-        },
-        {
-          icon: (
-            <Link
-              href={'/'}
-              className={
-                'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
-              }
-            >
-              <Home size={22} />
-            </Link>
-          ),
-          title: 'خانه',
-        },
-      ]}
-    />
+    <AnimatePresence mode={'popLayout'}>
+      {isVisible && (
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 50, opacity: 0 }}
+          transition={{
+            type: 'spring',
+            mass: 0.1,
+            stiffness: 150,
+            damping: 12,
+          }}
+          className={'fixed bottom-0 left-0 w-full h-auto'}
+        >
+          <AnimatedDock
+            items={[
+              {
+                icon: <DockMenuThemeSwitcher />,
+                title: 'تغییر تم',
+                divider: true,
+              },
+              {
+                icon: (
+                  <Link
+                    href={'/'}
+                    className={
+                      'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+                    }
+                  >
+                    <Github />
+                  </Link>
+                ),
+                title: 'گیت هاب',
+              },
+              {
+                icon: (
+                  <Link
+                    href={'/'}
+                    className={
+                      'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+                    }
+                  >
+                    <Instagram />
+                  </Link>
+                ),
+                title: 'اینستاگرام',
+                divider: true,
+              },
+              {
+                icon: (
+                  <Link
+                    href={'/blog'}
+                    className={
+                      'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+                    }
+                  >
+                    <Notebook size={22} />
+                  </Link>
+                ),
+                title: 'وبلاگ',
+              },
+              {
+                icon: (
+                  <Link
+                    href={'/projects'}
+                    className={
+                      'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+                    }
+                  >
+                    <Hammer size={22} />
+                  </Link>
+                ),
+                title: 'پروژه ها',
+              },
+              {
+                icon: (
+                  <Link
+                    href={'/'}
+                    className={
+                      'size-9 hover:bg-accent dark:hover:bg-accent/50 rounded-full flex justify-center items-center'
+                    }
+                  >
+                    <Home size={22} />
+                  </Link>
+                ),
+                title: 'خانه',
+              },
+            ]}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
