@@ -14,7 +14,7 @@ interface Data {
 const data: Data[] = [
   {
     title: 'درباره من',
-    link: '/about-me',
+    link: '/about',
   },
   {
     title: 'پروژه ها',
