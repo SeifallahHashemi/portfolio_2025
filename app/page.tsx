@@ -1,5 +1,6 @@
 // import BlurIn from '@/components/Animation/BlurIn';
 import AnimateSection from '@/components/Animation/AnimateSection';
+import Social from '@/components/Shared/Social';
 
 export default function Home() {
   return (
@@ -27,6 +28,9 @@ export default function Home() {
           من سپهر هاشمی هستم، یک توسعه دهنده باتجربه که مشتاق یادگیری و ساختن
           نرم افزار های خلاقانه و مدرن است.
         </p>
+      </AnimateSection>
+      <AnimateSection delay={0.3}>
+        <Social />
       </AnimateSection>
     </div>
   );
