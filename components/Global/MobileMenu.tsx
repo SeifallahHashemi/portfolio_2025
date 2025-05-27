@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 const data = [
   {
     title: 'درباره من',
-    href: '/about-me',
+    href: '/about',
     Icon: User,
   },
   {
