@@ -1,5 +1,6 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
 import BlurIn from '@/components/Animation/BlurIn';
+import HeroSvg from '@/components/Icons/HeroSvg';
 import Social from '@/components/Shared/Social';
 
 export default function Home() {
@@ -29,8 +30,18 @@ export default function Home() {
           نرم افزار های خلاقانه و مدرن است.
         </p>
       </AnimateSection>
+      <AnimateSection
+        delay={0.6}
+        className={
+          'w-full xl:max-w-6xl mx-auto flex justify-center items-center my-10'
+        }
+      >
+        <HeroSvg />
+      </AnimateSection>
       <div
-        className={'flex flex-col gap-y-6 justify-center items-center my-10'}
+        className={
+          'flex flex-col gap-y-6 justify-center items-center my-10 w-full xl:max-w-6xl mx-auto'
+        }
       >
         <BlurIn
           className={
