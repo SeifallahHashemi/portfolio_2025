@@ -29,9 +29,7 @@ export default function Home() {
           نرم افزار های خلاقانه و مدرن است.
         </p>
       </AnimateSection>
-      <AnimateSection delay={0.3}>
-        <Social />
-      </AnimateSection>
+      <Social />
     </div>
   );
 }
