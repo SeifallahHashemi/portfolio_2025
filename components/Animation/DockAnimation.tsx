@@ -1,8 +1,8 @@
 'use client';
 
+import Github from '@/components/Icons/github';
+import Instagram from '@/components/Icons/instagram';
 import DockMenuThemeSwitcher from '@/components/Theme/DockMenuThemeSwitcher';
-import Github from '@/components/ui/github';
-import Instagram from '@/components/ui/instagram';
 import { cn } from '@/lib/utils';
 import { Hammer, Home, Notebook } from 'lucide-react';
 import { MotionValue } from 'motion';
