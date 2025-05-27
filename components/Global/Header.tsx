@@ -52,7 +52,9 @@ const Header = () => {
           <ul className={'flex items-center gap-x-8'}>
             {data.map((item, index) => (
               <li key={'navigation-' + index}>
-                <ViewTransitionLink link={item.link} title={item.title} />
+                <ViewTransitionLink link={item.link}>
+                  {item.title}
+                </ViewTransitionLink>
               </li>
             ))}
           </ul>
