@@ -12,7 +12,7 @@ const Social = () => {
       },
     },
   };
-  const itemVaraints = {
+  const itemVariants = {
     initial: { filter: 'blur(0.5rem)', opacity: 0, translateY: '1rem' },
     animate: {
       filter: 'blur(0)',
@@ -32,7 +32,7 @@ const Social = () => {
         <motion.li
           key={item.id}
           className={''}
-          variants={itemVaraints}
+          variants={itemVariants}
           initial={'initial'}
           animate={'animate'}
         >
