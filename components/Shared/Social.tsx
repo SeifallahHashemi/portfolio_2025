@@ -25,15 +25,30 @@ const Social = () => {
   };
   return (
     <motion.ul
-      className={''}
+      className={'flex justify-center items-center gap-x-5 gap-y-4'}
       variants={containerVariants}
       initial={'initial'}
       animate={'animate'}
     >
-      {socialLinks.map((item) => (
-        <motion.li key={item.id} className={''} variants={itemVariants}>
-          <RefLink href={item.url} target={'_blank'}>
-            <item.icon />
+      {socialLinks.toReversed().map((item) => (
+        <motion.li
+          key={item.id}
+          className={'text-gray-900 dark:text-gray-500'}
+          variants={itemVariants}
+        >
+          <RefLink
+            href={item.url}
+            target={'_blank'}
+            className={
+              '!font-sans flex flex-row-reverse justify-center items-center gap-x-2 border-b border-b-zinc-200 dark:border-b-zinc-800 group hover:text-portfolio-primary dark:hover:text-gray-50 duration-300'
+            }
+          >
+            <item.icon
+              className={
+                'group-hover:text-portfolio-primary dark:group-hover:text-gray-50 duration-300'
+              }
+              aria-hidden="true"
+            />
             {item.name}
           </RefLink>
         </motion.li>
