@@ -6,7 +6,7 @@ import React from 'react';
 
 interface LinkProps {
   link: string;
-  className: string;
+  className?: string;
   children?: React.ReactNode;
 }
 
