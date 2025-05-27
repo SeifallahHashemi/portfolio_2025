@@ -1,5 +1,5 @@
-// import BlurIn from '@/components/Animation/BlurIn';
 import AnimateSection from '@/components/Animation/AnimateSection';
+import BlurIn from '@/components/Animation/BlurIn';
 import Social from '@/components/Shared/Social';
 
 export default function Home() {
@@ -29,7 +29,18 @@ export default function Home() {
           نرم افزار های خلاقانه و مدرن است.
         </p>
       </AnimateSection>
-      <Social />
+      <div
+        className={'flex flex-col gap-y-6 justify-center items-center my-10'}
+      >
+        <BlurIn
+          className={
+            'font-iranYWL text-base font-bold leading-relaxed text-center text-black/80 dark:text-white'
+          }
+          delay={0.4}
+          text={'شبکه های اجتماعی'}
+        />
+        <Social />
+      </div>
     </div>
   );
 }
