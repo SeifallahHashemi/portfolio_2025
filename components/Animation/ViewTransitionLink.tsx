@@ -5,10 +5,10 @@ import React from 'react';
 
 interface LinkProps {
   link: string;
-  title: string;
+  children?: React.ReactNode;
 }
 
-const ViewTransitionLink = ({ link, title }: LinkProps) => {
+const ViewTransitionLink = ({ link, children }: LinkProps) => {
   const router = useTransitionRouter();
   return (
     <a
@@ -23,7 +23,7 @@ const ViewTransitionLink = ({ link, title }: LinkProps) => {
         });
       }}
     >
-      {title}
+      {children}
     </a>
   );
 };
