@@ -22,14 +22,13 @@ const BlurIn = ({ text, className, delay = 0 }: BlurInProps) => {
       animate={'animate'}
       variants={variants}
       transition={{ duration: 0.5, delay: delay }}
-      className={cn(
-        'font-iranYWR drop-shadow-sm tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]',
-        className
-      )}
+      className={cn('font-iranYWR drop-shadow-sm', className)}
     >
       {text}
     </motion.p>
   );
 };
+
+// tracking-[-0.02em] md:leading-[4rem] lg:leading-[4.5rem] xl:leading-[5rem]
 
 export default BlurIn;
