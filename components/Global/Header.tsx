@@ -1,3 +1,4 @@
+import ViewTransitionLink from '@/components/Animation/ViewTransitionLink';
 import MobileMenu from '@/components/Global/MobileMenu';
 import { ThemeModeToggle } from '@/components/Theme/ThemeModeToggle';
 import Logo from '@/public/img/logo.png';
@@ -51,14 +52,7 @@ const Header = () => {
           <ul className={'flex items-center gap-x-8'}>
             {data.map((item, index) => (
               <li key={'navigation-' + index}>
-                <Link
-                  href={item.link}
-                  className={
-                    'dark:text-white text-zinc-700 font-normal dark:hover:text-portfolio-primary hover:text-zinc-900 duration-300 text-base'
-                  }
-                >
-                  {item.title}
-                </Link>
+                <ViewTransitionLink link={item.link} title={item.title} />
               </li>
             ))}
           </ul>
