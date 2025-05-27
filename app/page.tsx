@@ -33,9 +33,12 @@ export default function Home() {
       <AnimateSection
         delay={0.6}
         className={
-          'w-full xl:max-w-6xl mx-auto flex justify-center items-center my-10'
+          'w-full xl:max-w-6xl mx-auto flex justify-center items-center my-10 relative'
         }
       >
+        <div
+          className={'w-fit h-fit absolute top-1/2 left-1/2 -translate-x-1/2'}
+        ></div>
         <HeroSvg />
       </AnimateSection>
       <div
