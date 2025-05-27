@@ -38,7 +38,7 @@ const Header = () => {
           'max-w-6xl mx-auto flex flex-row-reverse justify-between items-center'
         }
       >
-        <Link href={'/'} className={'rounded-full overflow-clip'}>
+        <ViewTransitionLink link={'/'} className={'rounded-full overflow-clip'}>
           <Image
             src={Logo}
             alt={'Logo'}
@@ -47,7 +47,7 @@ const Header = () => {
             width={35}
             height={35}
           />
-        </Link>
+        </ViewTransitionLink>
         <nav className={'md:block hidden'}>
           <ul className={'flex items-center gap-x-8'}>
             {data.map((item, index) => (
