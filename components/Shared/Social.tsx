@@ -10,7 +10,7 @@ const Social = () => {
     animate: {
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1,
+        delayChildren: 0.5,
       },
     },
   };
@@ -31,13 +31,7 @@ const Social = () => {
       animate={'animate'}
     >
       {socialLinks.map((item) => (
-        <motion.li
-          key={item.id}
-          className={''}
-          variants={itemVariants}
-          initial={'initial'}
-          animate={'animate'}
-        >
+        <motion.li key={item.id} className={''} variants={itemVariants}>
           <RefLink href={item.url} target={'_blank'}>
             <item.icon />
             {item.name}
