@@ -1,3 +1,5 @@
+'use client';
+
 import { socialLinks } from '@/components/Data/social';
 import RefLink from '@/components/Shared/RefLink';
 import { motion } from 'motion/react';
