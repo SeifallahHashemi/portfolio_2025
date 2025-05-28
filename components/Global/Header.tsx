@@ -1,7 +1,7 @@
 import ViewTransitionLink from '@/components/Animation/ViewTransitionLink';
 import MobileMenu from '@/components/Global/MobileMenu';
 import { ThemeModeToggle } from '@/components/Theme/ThemeModeToggle';
-import Logo from '@/public/img/logo.png';
+import Logo from '@/public/img/logo.avif';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
 import React from 'react';
