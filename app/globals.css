@@ -82,7 +82,8 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
   --font-geist-sans: "sans-serif";
   --font-geist-mono: "monospace";
-  --porfolio-primary: oklch(0.769 0.188 70.08);
+  /*--porfolio-primary: oklch(0.769 0.188 70.08);*/
+  --porfolio-primary: oklch(0.6745 0.1467 158.05);
   --shadow-portfolio: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   interpolate-size: allow-keywords;
 }
