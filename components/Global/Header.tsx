@@ -44,8 +44,8 @@ const Header = () => {
             alt={'Logo'}
             priority={true}
             placeholder={'blur'}
-            width={35}
-            height={35}
+            width={75}
+            height={75}
           />
         </Link>
         <nav className={'md:block hidden'}>
