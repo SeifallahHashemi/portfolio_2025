@@ -1,6 +1,7 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
 import BlurIn from '@/components/Animation/BlurIn';
 import HeroSvg from '@/components/Icons/HeroSvg';
+import HeroSvgComplete from '@/components/Icons/HeroSvgComplete';
 import Social from '@/components/Shared/Social';
 
 export default function Home() {
@@ -31,14 +32,18 @@ export default function Home() {
         </p>
       </AnimateSection>
       <AnimateSection
-        delay={0.6}
+        delay={0.3}
         className={
           'w-full xl:max-w-6xl mx-auto flex justify-center items-center my-10 relative'
         }
       >
         <div
-          className={'w-fit h-fit absolute top-1/2 left-1/2 -translate-x-1/2'}
-        ></div>
+          className={
+            'w-fit h-fit absolute top-0 left-1/2 -translate-x-1/2 opacity-40 dark:opacity-15'
+          }
+        >
+          <HeroSvgComplete />
+        </div>
         <HeroSvg />
       </AnimateSection>
       <div
@@ -50,7 +55,7 @@ export default function Home() {
           className={
             'font-iranYWL text-base font-bold leading-relaxed text-center text-black/80 dark:text-white'
           }
-          delay={0.4}
+          delay={0.5}
           text={'شبکه های اجتماعی'}
         />
         <Social />
