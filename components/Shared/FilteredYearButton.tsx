@@ -3,8 +3,8 @@ import { cn } from '@/lib/utils';
 import React, { MouseEventHandler } from 'react';
 
 interface ButtonProps {
-  year: string;
-  currentYear: string | undefined;
+  year: number;
+  currentYear: number | undefined;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 const FilteredYearButton = ({ year, currentYear, onClick }: ButtonProps) => {
