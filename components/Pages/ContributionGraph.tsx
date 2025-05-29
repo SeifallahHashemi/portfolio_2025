@@ -16,6 +16,9 @@ const ContributionGraph = () => {
   const [uniqueTheme, setUniqueTheme] = useState<'light' | 'dark' | undefined>(
     theme as 'light' | 'dark'
   );
+  const [calendarYear, setCalendarYear] = useState<number | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     function isValidTheme(t: string | undefined): t is 'light' | 'dark' {
@@ -53,6 +56,9 @@ const ContributionGraph = () => {
               year={year}
               currentYear={currentYear}
               key={year}
+              onClick={() =>
+                setCalendarYear(year === calendarYear ? undefined : year)
+              }
             />
           )
         )}
