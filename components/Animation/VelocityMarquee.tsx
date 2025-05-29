@@ -14,22 +14,20 @@ const upperMarquee = [
   '/img/07.svg',
   '/img/08.svg',
   '/img/09.svg',
-  '/img/10.svg',
-  '/img/11.svg',
 ];
 
 const VelocityMarquee = () => {
   return (
     <div className={'flex flex-col gap-y-4'}>
       <motion.div
-        initial={{ x: 0 }}
-        animate={{ x: '100%' }}
-        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-        className={'flex shrink-0'}
+        initial={{ x: '-100%' }}
+        // animate={{ x: '100%' }}
+        // transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        className={'flex shrink-0 gap-x-4'}
       >
         {upperMarquee.map((src, ind) => {
           return (
-            <Image src={src} alt={'pic'} width={56} height={40} key={ind} />
+            <Image src={src} alt={'pic'} width={100} height={120} key={ind} />
           );
         })}
       </motion.div>
