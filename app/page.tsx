@@ -2,6 +2,7 @@ import AnimateSection from '@/components/Animation/AnimateSection';
 import BlurIn from '@/components/Animation/BlurIn';
 import HeroSvg from '@/components/Icons/HeroSvg';
 import HeroSvgComplete from '@/components/Icons/HeroSvgComplete';
+import GithubContributionGraph from '@/components/Pages/GithubContributionGraph';
 import Social from '@/components/Shared/Social';
 
 export default function Home() {
@@ -59,6 +60,7 @@ export default function Home() {
           text={'شبکه های اجتماعی'}
         />
         <Social />
+        <GithubContributionGraph />
       </div>
     </div>
   );
