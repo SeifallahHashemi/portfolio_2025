@@ -53,7 +53,7 @@ const DockAnimation = () => {
             stiffness: 150,
             damping: 12,
           }}
-          className={'fixed bottom-0 left-0 w-full h-auto'}
+          className={'fixed bottom-0 left-0 w-full h-auto z-10'}
         >
           <AnimatedDock
             items={[
