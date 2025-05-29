@@ -26,7 +26,22 @@ const ContributionGraph = () => {
     setUniqueTheme(undefined);
   }, [theme, systemTheme]);
 
-  return <div className={'flex flex-col xl:flex-row gap-4'}></div>;
+  return (
+    <div className={'flex flex-col xl:flex-row gap-4'}>
+      <div
+        className={
+          '!font-mono border border-zinc-200 dark:border-zinc-800 rounded-lg'
+        }
+      >
+        <GitHubCalendar
+          theme={github}
+          colorScheme={uniqueTheme}
+          username={username}
+          blockSize={13}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default ContributionGraph;
