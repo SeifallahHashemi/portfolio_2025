@@ -4,7 +4,7 @@ import React from 'react';
 
 const InfiniteMarquee = () => {
   return (
-    <section>
+    <section className={'space-y-6'}>
       <AnimateSection delay={0.9}>
         <h2
           className={
