@@ -168,4 +168,8 @@
       stroke-dashoffset: 12433.8193359375;
     }
   }
+
+  .portfolioText {
+    @apply text-zinc-800 dark:text-zinc-200 text-base font-normal leading-relaxed;
+  }
 }
