@@ -36,8 +36,6 @@ const MobileMenu = () => {
     });
   };
 
-  console.log(toggleMobileNav);
-
   return (
     <AnimatePresence mode={'popLayout'}>
       <Button
