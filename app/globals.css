@@ -169,7 +169,13 @@
     }
   }
 
-  .portfolioText {
-    @apply text-zinc-800 dark:text-zinc-200 text-base font-normal leading-relaxed;
+  .portfolioTextSans {
+    @apply text-zinc-800 dark:text-zinc-200 text-base font-iranSans font-normal leading-relaxed;
+  }
+  .portfolioTextWL {
+    @apply text-zinc-800 dark:text-zinc-200 text-base font-iranYWL font-normal leading-relaxed;
+  }
+  .portfolioTextWR {
+    @apply text-zinc-800 dark:text-zinc-200 text-base font-iranYWR font-normal leading-relaxed;
   }
 }
