@@ -1,4 +1,5 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
+import VelocityMarquee from '@/components/Animation/VelocityMarquee';
 import React from 'react';
 
 const InfiniteMarquee = () => {
@@ -12,6 +13,9 @@ const InfiniteMarquee = () => {
         >
           مهارت ها
         </h2>
+      </AnimateSection>
+      <AnimateSection delay={1}>
+        <VelocityMarquee />
       </AnimateSection>
     </section>
   );
