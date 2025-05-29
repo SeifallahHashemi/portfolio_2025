@@ -30,14 +30,14 @@ const ContributionGraph = () => {
     <div className={'flex flex-col xl:flex-row gap-4'}>
       <div
         className={
-          '!font-mono border border-zinc-200 dark:border-zinc-800 rounded-lg'
+          '!font-mono border border-zinc-200 dark:border-zinc-800 rounded-lg dark:bg-slate-900/10 backdrop-blur-lg bg-white/30 p-6 max-w-fit max-h-fit'
         }
       >
         <GitHubCalendar
           theme={github}
           colorScheme={uniqueTheme}
           username={username}
-          blockSize={13}
+          blockSize={12}
         />
       </div>
     </div>
