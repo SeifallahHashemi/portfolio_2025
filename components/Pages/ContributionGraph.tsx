@@ -1,12 +1,16 @@
 'use client';
 
 import { github } from '@/components/Data/contribution-graph-theme';
+import FilteredYearButton from '@/components/Shared/FilteredYearButton';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 
 const ContributionGraph = () => {
   const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME!;
+  const currentYear = new Date().getFullYear();
+  const startYear = 2021;
+  const duration = currentYear - startYear;
 
   const { theme, systemTheme } = useTheme();
   const [uniqueTheme, setUniqueTheme] = useState<'light' | 'dark' | undefined>(
@@ -39,6 +43,19 @@ const ContributionGraph = () => {
           username={username}
           blockSize={12}
         />
+      </div>
+      <div
+        className={'flex justify-start xl:flex-col flex-row flex-wrap gap-2'}
+      >
+        {Array.from({ length: duration }, (_year, i) => currentYear - i).map(
+          (year) => (
+            <FilteredYearButton
+              year={year}
+              currentYear={currentYear}
+              key={year}
+            />
+          )
+        )}
       </div>
     </div>
   );
