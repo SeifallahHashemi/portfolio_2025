@@ -1,5 +1,6 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
 import BlurIn from '@/components/Animation/BlurIn';
+import InfiniteMarquee from '@/components/Animation/InfiniteMarquee';
 import HeroSvg from '@/components/Icons/HeroSvg';
 import HeroSvgComplete from '@/components/Icons/HeroSvgComplete';
 import GithubContributionGraph from '@/components/Pages/GithubContributionGraph';
@@ -61,6 +62,7 @@ export default function Home() {
         />
         <Social />
         <GithubContributionGraph />
+        <InfiniteMarquee />
       </div>
     </div>
   );
