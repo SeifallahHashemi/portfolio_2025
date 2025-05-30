@@ -23,7 +23,7 @@ const VelocityMarquee = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start end', 'end 10%'],
+    offset: ['start end', 'end 0%'],
   });
   const scrollVelocity = useVelocity(scrollYProgress);
   const skewXRaw = useTransform(
