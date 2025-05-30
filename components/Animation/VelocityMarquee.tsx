@@ -1,8 +1,14 @@
 'use client';
 
-import { motion } from 'motion/react';
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from 'motion/react';
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 
 const upperMarquee = [
   '/img/01.svg',
@@ -17,12 +23,30 @@ const upperMarquee = [
 ];
 
 const VelocityMarquee = () => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+  const scrollVelocity = useVelocity(scrollYProgress);
+  const skewXRaw = useTransform(
+    scrollVelocity,
+    [-0.5, 0.5],
+    ['45deg', '-45deg']
+  );
+  const skewX = useSpring(skewXRaw, {
+    mass: 3,
+    stiffness: 400,
+    damping: 50,
+  });
+  const xRaw = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const x = useSpring(xRaw);
   return (
-    <div className={'flex flex-col gap-y-4'}>
+    <div className={'flex flex-col gap-y-4'} ref={targetRef}>
       <motion.div
-        initial={{ x: '-100%' }}
-        // animate={{ x: '100%' }}
-        // transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        style={{
+          skewX,
+          x,
+        }}
         className={'flex shrink-0 gap-x-4'}
       >
         {upperMarquee.map((src, ind) => {
