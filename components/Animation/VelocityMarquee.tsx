@@ -26,6 +26,7 @@ const VelocityMarquee = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ['start end', 'end 10%'],
   });
   const scrollVelocity = useVelocity(scrollYProgress);
   const skewXRaw = useTransform(
@@ -38,7 +39,7 @@ const VelocityMarquee = () => {
     stiffness: 400,
     damping: 50,
   });
-  const xRaw = useTransform(scrollYProgress, [0, 1], [0, 500]);
+  const xRaw = useTransform(scrollYProgress, [0, 1], ['100%', '0']);
   const x = useSpring(xRaw);
   return (
     <div className={'flex flex-col gap-y-4'} ref={targetRef}>
