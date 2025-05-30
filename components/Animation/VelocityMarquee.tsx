@@ -11,15 +11,12 @@ import Image from 'next/image';
 import React, { useRef } from 'react';
 
 const upperMarquee = [
-  '/img/01.svg',
-  '/img/02.svg',
-  '/img/03.svg',
-  '/img/04.svg',
-  '/img/05.svg',
-  '/img/06.svg',
-  '/img/07.svg',
-  '/img/08.svg',
-  '/img/09.svg',
+  '/img/CSS.svg',
+  '/img/nextjs.svg',
+  '/img/React.svg',
+  '/img/redux.svg',
+  '/img/tailwindCSS.svg',
+  '/img/typescript.svg',
 ];
 
 const VelocityMarquee = () => {
@@ -39,16 +36,16 @@ const VelocityMarquee = () => {
     stiffness: 400,
     damping: 50,
   });
-  const xRaw = useTransform(scrollYProgress, [0, 1], ['100%', '0']);
+  const xRaw = useTransform(scrollYProgress, [0, 1], ['50%', '-50%']);
   const x = useSpring(xRaw);
   return (
-    <div className={'flex flex-col gap-y-4'} ref={targetRef}>
+    <div className={'flex flex-col gap-y-4 w-full'} ref={targetRef}>
       <motion.div
         style={{
           skewX,
           x,
         }}
-        className={'flex shrink-0 gap-x-4'}
+        className={'w-full flex shrink-0 justify-between items-center'}
       >
         {upperMarquee.map((src, ind) => {
           return (
