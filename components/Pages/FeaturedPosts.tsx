@@ -18,10 +18,7 @@ const FeaturedPosts = () => {
           پست های ویژه
         </h2>
       </AnimateSection>
-      <AnimateSection
-        delay={1.2}
-        className={'w-full xl:max-w-6xl mx-auto grid place-content-center'}
-      >
+      <AnimateSection delay={1.2}>
         <SpotlightGlowingCard />
       </AnimateSection>
     </section>
