@@ -1,5 +1,4 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
-import SpotlightGlowingCard from '@/components/Pages/SpotlightGlowingCard';
 import React from 'react';
 
 const FeaturedPosts = () => {
@@ -17,9 +16,6 @@ const FeaturedPosts = () => {
         >
           پست های ویژه
         </h2>
-      </AnimateSection>
-      <AnimateSection delay={1.2}>
-        <SpotlightGlowingCard />
       </AnimateSection>
     </section>
   );
