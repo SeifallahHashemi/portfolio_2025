@@ -4,7 +4,18 @@ import OptimizedImage from '@/components/Image/OptimizedImage';
 import ProductImage from '@/public/img/img-1.jpg';
 import { Link } from 'next-view-transitions';
 import { StaticImageData } from 'next/image';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+const dataCards = [
+  {
+    id: 1,
+    src: ProductImage,
+    title: 'Copilot Practice 1',
+    text: '1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, numquam earum.',
+    link: '',
+    date: '',
+  },
+];
 
 interface CardProps {
   src: string | StaticImageData;
@@ -12,25 +23,50 @@ interface CardProps {
   text: string;
   link: string;
   date: string;
-  ref: React.Ref<HTMLAnchorElement>;
+  ref?: React.Ref<HTMLAnchorElement>;
 }
 
 const SpotlightGlowingCard = () => {
-  const ref = useRef(null);
+  const ref = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      ref.current.forEach((card) => {
+        if (card) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        }
+      });
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   return (
     <div
       className={
         'w-full xl:max-w-6xl mx-auto flex flex-wrap gap-12 items-center justify-center'
       }
     >
-      <Card
-        src={ProductImage}
-        title={'Hello world'}
-        text={'Hello world'}
-        link={'/'}
-        date={''}
-        ref={ref}
-      />
+      {dataCards.map((card, ind) => (
+        <Card
+          key={ind}
+          src={ProductImage}
+          title={card.title}
+          text={card.text}
+          link={'/'}
+          date={''}
+          ref={(el: HTMLAnchorElement | null) => {
+            ref.current[ind] = el;
+          }}
+        />
+      ))}
     </div>
   );
 };
