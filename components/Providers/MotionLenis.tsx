@@ -4,7 +4,7 @@ import ReactLenis, { LenisRef } from 'lenis/react';
 import { cancelFrame, frame } from 'motion/react';
 import React, { useEffect, useRef } from 'react';
 
-const MotionLenis = () => {
+const MotionLenis = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<LenisRef>(null);
 
   useEffect(() => {
@@ -16,7 +16,11 @@ const MotionLenis = () => {
 
     return () => cancelFrame(update);
   }, []);
-  return <ReactLenis root ref={ref} options={{ autoRaf: false }}></ReactLenis>;
+  return (
+    <ReactLenis root ref={ref} options={{ autoRaf: false }}>
+      {children}
+    </ReactLenis>
+  );
 };
 
 export default MotionLenis;
