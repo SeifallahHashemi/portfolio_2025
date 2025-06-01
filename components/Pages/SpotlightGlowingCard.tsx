@@ -1,12 +1,13 @@
 'use client';
 
 import OptimizedImage from '@/components/Image/OptimizedImage';
+import ProductImage from '@/public/img/img-1.jpg';
 import { Link } from 'next-view-transitions';
-import Image from 'next/image';
-import React from 'react';
+import { StaticImageData } from 'next/image';
+import React, { useRef } from 'react';
 
 interface CardProps {
-  src: string;
+  src: string | StaticImageData;
   title: string;
   text: string;
   link: string;
@@ -15,12 +16,22 @@ interface CardProps {
 }
 
 const SpotlightGlowingCard = () => {
+  const ref = useRef(null);
   return (
     <div
       className={
         'w-full xl:max-w-6xl mx-auto flex flex-wrap gap-12 items-center justify-center'
       }
-    ></div>
+    >
+      <Card
+        src={ProductImage}
+        title={'Hello world'}
+        text={'Hello world'}
+        link={'/'}
+        date={''}
+        ref={ref}
+      />
+    </div>
   );
 };
 
