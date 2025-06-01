@@ -1,10 +1,10 @@
 import { getImage } from '@/lib/getImage';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 type OptimizedImageProps = {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
   priority: boolean;
   quality: number;
