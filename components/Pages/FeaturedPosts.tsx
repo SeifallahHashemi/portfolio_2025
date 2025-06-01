@@ -5,11 +5,17 @@ const FeaturedPosts = () => {
   return (
     <section
       className={
-        'my-20 w-full xl:max-w-6xl mx-auto flex justify-center items-center'
+        'my-40 w-full xl:max-w-6xl mx-auto flex justify-center items-center'
       }
     >
       <AnimateSection delay={1.1}>
-        <h2>hello world</h2>
+        <h2
+          className={
+            'font-bold text-lg text-center font-iranYWL text-zinc-800 dark:text-white leading-relaxed'
+          }
+        >
+          پست های ویژه
+        </h2>
       </AnimateSection>
     </section>
   );
