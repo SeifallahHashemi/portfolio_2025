@@ -1,114 +1,75 @@
 'use client';
 
-import OptimizedImage from '@/components/Image/OptimizedImage';
-import ProductImage from '@/public/img/img-1.jpg';
-import { Link } from 'next-view-transitions';
-import { StaticImageData } from 'next/image';
-import React, { useEffect, useRef } from 'react';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+} from 'motion/react';
+import React, { useRef, useState } from 'react';
 
-const dataCards = [
-  {
-    id: 1,
-    src: ProductImage,
-    title: 'Copilot Practice 1',
-    text: '1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, numquam earum.',
-    link: '',
-    date: '',
-  },
-];
+const SpotlightGlowingCard = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-interface CardProps {
-  src: string | StaticImageData;
-  title: string;
-  text: string;
-  link: string;
-  date: string;
-  ref?: React.Ref<HTMLAnchorElement>;
-}
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-const SpotlightGlowingCard = () => {
-  const ref = useRef<(HTMLAnchorElement | null)[]>([]);
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 40 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 40 });
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      ref.current.forEach((card) => {
-        if (card) {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        }
-      });
-    };
+  // اصلاح با useMotionTemplate
+  const spotlightBg = useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(59,130,246,0.22), transparent 70%)`;
+  const glowBorder = useMotionTemplate`radial-gradient(300px circle at ${springX}px ${springY}px, rgba(59,130,246,0.40), transparent 80%)`;
 
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
 
   return (
-    <div
-      className={
-        'w-full xl:max-w-6xl mx-auto flex flex-wrap gap-12 items-center justify-center'
-      }
+    <motion.div
+      ref={cardRef}
+      className={`relative overflow-hidden rounded-xl shadow-xl bg-neutral-900 border border-neutral-700 transition
+        
+        ${className || ''}`}
+      style={{
+        scale: isHovered ? 1.025 : 1,
+        transition: 'scale 0.2s cubic-bezier(.4,0,.2,1)',
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {dataCards.map((card, ind) => (
-        <Card
-          key={ind}
-          src={ProductImage}
-          title={card.title}
-          text={card.text}
-          link={'/'}
-          date={''}
-          ref={(el: HTMLAnchorElement | null) => {
-            ref.current[ind] = el;
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
-const Card = ({ src, title, text, link, date, ref }: CardProps) => {
-  return (
-    <Link
-      href={link}
-      ref={ref}
-      className={
-        'relative h-72 w-96 rounded-xl overflow-clip group bg-white/5 dark:bg-black/5 backdrop-blur-md'
-      }
-    >
-      <div
-        className={
-          'absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none'
-        }
+      {/* Glowing spotlight effect */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 z-10"
         style={{
-          background:
-            'radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(51, 26, 52, 0.4), transparent 40%)',
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.3s',
+          background: spotlightBg,
         }}
       />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+      {/* Glowing border */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 z-20 rounded-xl"
         style={{
-          background:
-            'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(81, 47, 76, 1), transparent 40%)',
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.3s',
+          background: glowBorder,
+          filter: 'blur(12px)',
         }}
       />
-      <div className="absolute inset-0.5 rounded-[9px] bg-[#161B22] z-10 p-8 flex flex-col">
-        <OptimizedImage
-          src={src}
-          alt={'blog post image'}
-          priority={false}
-          quality={75}
-          sizes={'(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
-        />
-        <h2 className="text-white text-xl font-bold mb-4">{title}</h2>
-        <p className="text-gray-400 text-sm mb-6 flex-grow">{text}</p>
-        <p className="text-gray-400 text-sm mb-6 flex-grow">{date}</p>
-      </div>
-    </Link>
+      <div className="relative z-30 p-6 text-white">{children}</div>
+    </motion.div>
   );
 };
 
