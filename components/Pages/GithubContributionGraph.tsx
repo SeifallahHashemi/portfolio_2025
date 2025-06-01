@@ -15,7 +15,7 @@ const GithubContributionGraph = () => {
             'text-zinc-800 dark:text-white text-base font-iranYWL font-bold leading-relaxed text-right'
           }
         >
-          نمودار فعالیت گیت هاب:
+          نمودار فعالیت گیت هاب
         </h2>
       </AnimateSection>
       <AnimateSection delay={0.8}>
