@@ -29,14 +29,22 @@ const Card = () => {
   const springX = useSpring(mouseX, { stiffness: 300, damping: 40 });
   const springY = useSpring(mouseY, { stiffness: 300, damping: 40 });
   // Motion Template
-  const spotlightBg = useMotionTemplate``;
-  const glowBorder = useMotionTemplate``;
+  const spotlightBg = useMotionTemplate`radial-gradient(600px circle at ${springX}px ${springY}px, rgba(59,130,246,0.22), transparent 70%)`;
+  const glowBorder = useMotionTemplate`radial-gradient(300px circle at ${springX}px ${springY}px, rgba(59,130,246,0.40), transparent 100%)`;
+  // Handler
+  const MouseHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  };
   return (
     <div
       ref={ref}
       className={
         'relative overflow-clip rounded-xl bg-slate-800 w-[350px] h-[380px] '
       }
+      onMouseMove={MouseHandler}
     >
       {/* bg glowing */}
       <motion.div
