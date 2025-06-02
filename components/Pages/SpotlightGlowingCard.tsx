@@ -1,6 +1,11 @@
 'use client';
 
-import { motion } from 'motion/react';
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+} from 'motion/react';
 import React, { useRef } from 'react';
 
 const SpotlightGlowingCard = () => {
@@ -17,6 +22,15 @@ const SpotlightGlowingCard = () => {
 
 const Card = () => {
   const ref = useRef<HTMLDivElement | null>(null);
+  // Motion Value
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  // Sping Value
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 40 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 40 });
+  // Motion Template
+  const spotlightBg = useMotionTemplate``;
+  const glowBorder = useMotionTemplate``;
   return (
     <div
       ref={ref}
