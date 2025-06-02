@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import React from 'react';
+import React, { useRef } from 'react';
 
 const SpotlightGlowingCard = () => {
   return (
@@ -16,8 +16,10 @@ const SpotlightGlowingCard = () => {
 };
 
 const Card = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
   return (
     <div
+      ref={ref}
       className={
         'relative overflow-clip rounded-xl bg-slate-800 w-[350px] h-[380px] '
       }
