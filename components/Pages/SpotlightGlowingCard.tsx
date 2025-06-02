@@ -1,6 +1,31 @@
 'use client';
 
+import PhotoOne from '@/public/img/card-01.png';
+import PhotoTwo from '@/public/img/card-02.png';
+import PhotoThree from '@/public/img/card-03.png';
+import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
+
+const data = [
+  {
+    id: 100,
+    title: '',
+    text: '',
+    src: PhotoOne,
+  },
+  {
+    id: 101,
+    title: '',
+    text: '',
+    src: PhotoTwo,
+  },
+  {
+    id: 102,
+    title: '',
+    text: '',
+    src: PhotoThree,
+  },
+];
 
 const SpotlightGlowingCard = () => {
   const cardsRef = useRef<HTMLDivElement[]>([]);
@@ -28,10 +53,13 @@ const SpotlightGlowingCard = () => {
         'w-full flex flex-wrap gap-10 justify-center items-center group'
       }
     >
-      {Array.from({ length: 3 }).map((_item, ind) => {
+      {data.map((item, ind) => {
         return (
           <Card
-            key={ind}
+            key={item.id}
+            title={item.title}
+            text={item.text}
+            src={item.src}
             ref={(el: HTMLDivElement | null) => {
               if (el) {
                 cardsRef.current[ind] = el;
@@ -44,7 +72,14 @@ const SpotlightGlowingCard = () => {
   );
 };
 
-const Card = ({ ref }: { ref: React.RefCallback<HTMLDivElement> }) => {
+interface CardProps {
+  ref: React.RefCallback<HTMLDivElement>;
+  title: string;
+  text: string;
+  src: string | StaticImageData;
+}
+
+const Card = ({ ref, title, text, src }: CardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -63,7 +98,7 @@ const Card = ({ ref }: { ref: React.RefCallback<HTMLDivElement> }) => {
         }
         style={{
           background:
-            'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(148,163,184,0.25), transparent 70%)',
+            'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,0.1), transparent 70%)',
           opacity: isHovered ? 1 : 0,
         }}
       ></div>
@@ -83,7 +118,33 @@ const Card = ({ ref }: { ref: React.RefCallback<HTMLDivElement> }) => {
           'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-900 grid place-content-center z-20'
         }
       >
-        hello world
+        <div className={'flex flex-col h-full items-center text-center'}>
+          {/* Image Section */}
+          <div className="relative inline-flex">
+            <div
+              className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl -z-10 rounded-full bg-indigo-600"
+              aria-hidden="true"
+            ></div>
+            <Image src={src} alt={'pic'} width={150} height={150} />
+            <div
+              className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
+              aria-hidden="true"
+            >
+              <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]"></div>
+            </div>
+          </div>
+          {/* Text */}
+          <div className="grow mb-5">
+            <h2 className="text-xl text-zinc-100 font-bold mb-1">{title}</h2>
+            <p className="text-sm text-gray-400">{text}</p>
+          </div>
+        </div>
+        <div
+          className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
+          aria-hidden="true"
+        >
+          <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]"></div>
+        </div>
       </div>
     </div>
   );
