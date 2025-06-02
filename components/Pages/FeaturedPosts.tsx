@@ -6,7 +6,7 @@ const FeaturedPosts = () => {
   return (
     <section
       className={
-        'my-40 w-full xl:max-w-6xl mx-auto flex flex-col justify-center items-center'
+        'my-40 w-full xl:max-w-6xl mx-auto flex flex-col justify-center items-center gap-y-10'
       }
     >
       <AnimateSection delay={1.1}>
