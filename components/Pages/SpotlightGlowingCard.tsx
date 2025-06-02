@@ -25,13 +25,13 @@ const Card = () => {
       {/* bg glowing */}
       <motion.div
         className={
-          'absolute z-30 pointer-events-none inset-0 opacity-0 hover:opacity-100'
+          'absolute z-30 pointer-events-none inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500'
         }
       ></motion.div>
       {/* border glowing */}
       <motion.div
         className={
-          'absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100'
+          'absolute inset-0 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500'
         }
       ></motion.div>
       {/* content */}
