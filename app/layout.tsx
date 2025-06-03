@@ -7,6 +7,7 @@ import {
   iranYekanWebRegular,
 } from '@/app/_fonts/font';
 import DockAnimation from '@/components/Animation/DockAnimation';
+import Footer from '@/components/Global/Footer';
 import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
 import { ViewTransitions } from 'next-view-transitions';
@@ -41,6 +42,7 @@ export default function RootLayout({
             <Header />
             <DockAnimation />
             {children}
+            <Footer />
           </Providers>
         </body>
       </html>
