@@ -109,7 +109,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
         }
         style={{
           background:
-            'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(148,163,184,0.5), transparent 70%)',
+            'radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,1), transparent 70%)',
         }}
       ></div>
       {/* content */}
