@@ -20,18 +20,12 @@ const ContributionGraph = () => {
     undefined
   );
 
+  const scheme =
+    theme === 'light' ? 'light' : theme === 'dark' ? 'dark' : systemTheme;
+
   useEffect(() => {
-    function isValidTheme(t: string | undefined): t is 'light' | 'dark' {
-      return t === 'light' || t === 'dark';
-    }
-
-    const result = theme || systemTheme;
-    if (isValidTheme(result)) {
-      setUniqueTheme(result);
-    }
-
-    setUniqueTheme(undefined);
-  }, [theme, systemTheme]);
+    setUniqueTheme(scheme);
+  }, [scheme]);
 
   return (
     <div className={'flex flex-col xl:flex-row-reverse gap-4'}>
