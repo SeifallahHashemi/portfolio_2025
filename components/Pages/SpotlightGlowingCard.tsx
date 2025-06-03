@@ -120,7 +120,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       >
         <div
           className={
-            'flex flex-col gap-y-2 h-full items-center text-center justify-around'
+            'flex flex-col gap-y-6 h-full items-center text-center justify-center'
           }
         >
           {/* Image Section */}
