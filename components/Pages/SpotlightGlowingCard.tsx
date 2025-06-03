@@ -86,7 +86,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
     <div
       ref={ref}
       className={
-        'relative overflow-clip rounded-xl bg-gray-200 dark:bg-zinc-800 w-[300px] h-[380px] group cursor-pointer'
+        'relative overflow-clip rounded-xl bg-gray-200 dark:bg-zinc-800 w-[300px] h-[380px] group cursor-pointer transition-colors duration-300'
       }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -115,7 +115,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       {/* content */}
       <div
         className={
-          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-100 dark:bg-neutral-950 z-20 px-1.5'
+          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-100 dark:bg-neutral-950 z-20 px-1.5 transition-colors duration-300'
         }
       >
         <div
