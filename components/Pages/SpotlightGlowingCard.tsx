@@ -115,7 +115,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       {/* content */}
       <div
         className={
-          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-900 grid place-content-center z-20 px-1.5'
+          'absolute inset-0.5 rounded-xl overflow-clip bg-neutral-950 grid place-content-center z-20 px-1.5'
         }
       >
         <div
