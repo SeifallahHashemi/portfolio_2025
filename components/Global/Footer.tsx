@@ -2,6 +2,8 @@ import RefLink from '@/components/Shared/RefLink';
 import DarkNextJs from '@/public/img/Next.js_wordmark_dark.svg';
 import LightNextJs from '@/public/img/Next.js_wordmark_light.svg';
 import Sanity from '@/public/img/sanity.svg';
+import DarkVercel from '@/public/img/Vercel_wordmark_dark.svg';
+import LightVercel from '@/public/img/Vercel_wordmark_light.svg';
 import Image from 'next/image';
 import React from 'react';
 
@@ -48,11 +50,24 @@ const Footer = () => {
                 />
               </RefLink>
             </li>
-            {/*<li>*/}
-            {/*  <RefLink href={''} target={'_blank'}>*/}
-            {/*    <Image alt={'Vercel Logo'} src={''} width={40} height={40} />*/}
-            {/*  </RefLink>*/}
-            {/*</li>*/}
+            <li>
+              <RefLink href={''} target={'_blank'}>
+                <Image
+                  alt={'Vercel Logo'}
+                  src={LightVercel}
+                  width={40}
+                  height={40}
+                  className={'dark:hidden inline-flex'}
+                />
+                <Image
+                  alt={'Vercel Logo'}
+                  src={DarkVercel}
+                  width={40}
+                  height={40}
+                  className={'hidden dark:inline-flex'}
+                />
+              </RefLink>
+            </li>
           </ul>
         </div>
         <div>
