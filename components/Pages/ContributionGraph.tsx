@@ -45,11 +45,11 @@ const ContributionGraph = () => {
       <div
         className={'flex justify-start xl:flex-col flex-row flex-wrap gap-2'}
       >
-        {Array.from({ length: duration }, (_year, i) => currentYear - i).map(
+        {Array.from({ length: duration }, (_y, i) => currentYear - i).map(
           (year) => (
             <FilteredYearButton
               year={year}
-              currentYear={currentYear}
+              currentYear={calendarYear}
               key={year}
               onClick={() =>
                 setCalendarYear(year === calendarYear ? undefined : year)
