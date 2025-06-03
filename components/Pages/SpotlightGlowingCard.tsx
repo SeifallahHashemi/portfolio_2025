@@ -115,11 +115,13 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       {/* content */}
       <div
         className={
-          'absolute inset-0.5 rounded-xl overflow-clip bg-neutral-950 grid place-content-center z-20 px-1.5'
+          'absolute inset-0.5 rounded-xl overflow-clip bg-neutral-950 z-20 px-1.5'
         }
       >
         <div
-          className={'flex flex-col gap-y-2 h-full items-center text-center'}
+          className={
+            'flex flex-col gap-y-2 h-full items-center text-center justify-around'
+          }
         >
           {/* Image Section */}
           <div className="relative inline-flex">
@@ -136,7 +138,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
             </div>
           </div>
           {/* Text */}
-          <div className="grow flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-2">
             <h2 className="text-xl text-zinc-100 font-normal font-iranYWL mb-1">
               {title}
             </h2>
