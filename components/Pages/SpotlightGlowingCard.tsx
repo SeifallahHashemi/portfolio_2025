@@ -86,7 +86,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
     <div
       ref={ref}
       className={
-        'relative overflow-clip rounded-xl bg-zinc-800 w-[300px] h-[380px] group cursor-pointer'
+        'relative overflow-clip rounded-xl bg-gray-200 dark:bg-zinc-800 w-[300px] h-[380px] group cursor-pointer'
       }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -115,7 +115,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       {/* content */}
       <div
         className={
-          'absolute inset-0.5 rounded-xl overflow-clip bg-neutral-950 z-20 px-1.5'
+          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-100 dark:bg-neutral-950 z-20 px-1.5'
         }
       >
         <div
@@ -126,7 +126,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
           {/* Image Section */}
           <div className="relative inline-flex">
             <div
-              className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl -z-10 rounded-full bg-indigo-600"
+              className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl -z-10 rounded-full bg-indigo-200 dark:bg-indigo-600"
               aria-hidden="true"
             ></div>
             <Image src={src} alt={'pic'} width={180} height={180} />
@@ -134,15 +134,15 @@ const Card = ({ ref, title, text, src }: CardProps) => {
               className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
               aria-hidden="true"
             >
-              <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]"></div>
+              <div className="absolute inset-0 translate-z-0 bg-slate-200 dark:bg-slate-800 rounded-full blur-[80px]"></div>
             </div>
           </div>
           {/* Text */}
           <div className="flex flex-col gap-y-2">
-            <h2 className="text-xl text-zinc-100 font-normal font-iranYWL mb-1">
+            <h2 className="text-lg text-zinc-800 dark:text-zinc-100 font-semibold font-iranYWL mb-1">
               {title}
             </h2>
-            <p className="text-xs text-gray-400 font-iranYWR leading-relaxed">
+            <p className="text-xs text-gray-400 dark:text-gray-400 font-iranYWR leading-relaxed">
               {text}
             </p>
           </div>
@@ -151,7 +151,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
           className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
           aria-hidden="true"
         >
-          <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]"></div>
+          <div className="absolute inset-0 translate-z-0 bg-slate-100 dark:bg-slate-800 rounded-full blur-[80px]"></div>
         </div>
       </div>
     </div>
