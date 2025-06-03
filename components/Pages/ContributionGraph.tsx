@@ -39,8 +39,9 @@ const ContributionGraph = () => {
           theme={github}
           colorScheme={uniqueTheme}
           username={username}
-          blockSize={12}
+          blockSize={13}
           year={calendarYear ?? thisYear}
+          hideTotalCount={true}
         />
       </div>
       <div
