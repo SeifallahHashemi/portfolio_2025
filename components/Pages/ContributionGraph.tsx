@@ -11,6 +11,7 @@ const ContributionGraph = () => {
   const currentYear = new Date().getFullYear();
   const startYear = 2021;
   const duration = currentYear - startYear;
+  const thisYear = new Date().getFullYear();
 
   const { theme, systemTheme } = useTheme();
   const [uniqueTheme, setUniqueTheme] = useState<'light' | 'dark' | undefined>(
@@ -39,7 +40,7 @@ const ContributionGraph = () => {
           colorScheme={uniqueTheme}
           username={username}
           blockSize={12}
-          year={calendarYear}
+          year={calendarYear ?? thisYear}
         />
       </div>
       <div
@@ -49,7 +50,7 @@ const ContributionGraph = () => {
           (year) => (
             <FilteredYearButton
               year={year}
-              currentYear={calendarYear}
+              currentYear={calendarYear ?? thisYear}
               key={year}
               onClick={() =>
                 setCalendarYear(year === calendarYear ? undefined : year)
