@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer
       className={
-        'w-screen overflow-clip h-fit p-6 border-t border-t-zinc-200 dark:border-zinc-900'
+        'w-screen overflow-clip h-fit p-6 border-t border-t-zinc-200 dark:border-zinc-900 transition-colors duration-300'
       }
     >
       <div
