@@ -12,9 +12,10 @@ const FilteredYearButton = ({ year, currentYear, onClick }: ButtonProps) => {
     <Button
       variant={'ghost'}
       onClick={onClick}
-      className={cn('font-mono cursor-pointer', {
-        '!bg-teal-900': currentYear === year,
-      })}
+      className={cn(
+        'font-mono cursor-pointer text-zinc-800 dark:text-zinc-200',
+        currentYear === year && 'dark:!bg-teal-900 bg-teal-500'
+      )}
       title={`سال فعالیت ${year}`}
     >
       {year}
