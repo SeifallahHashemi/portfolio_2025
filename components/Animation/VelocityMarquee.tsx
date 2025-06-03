@@ -1,5 +1,11 @@
 'use client';
 
+import CSS from '@/components/Icons/css';
+import NextJsSvg from '@/components/Icons/next-js-svg';
+import ReactSVG from '@/components/Icons/react-svg';
+import ReduxSvg from '@/components/Icons/redux-svg';
+import TailwindSvg from '@/components/Icons/tailwind-svg';
+import TypescriptSvg from '@/components/Icons/typescript-svg';
 import {
   motion,
   useScroll,
@@ -7,16 +13,15 @@ import {
   useTransform,
   useVelocity,
 } from 'motion/react';
-import Image from 'next/image';
 import React, { useRef } from 'react';
 
 const upperMarquee = [
-  '/img/CSS.svg',
-  '/img/nextjs.svg',
-  '/img/React.svg',
-  '/img/redux.svg',
-  '/img/tailwindCSS.svg',
-  '/img/typescript.svg',
+  CSS,
+  NextJsSvg,
+  ReactSVG,
+  ReduxSvg,
+  TailwindSvg,
+  TypescriptSvg,
 ];
 
 const VelocityMarquee = () => {
@@ -36,7 +41,7 @@ const VelocityMarquee = () => {
     stiffness: 400,
     damping: 50,
   });
-  const xRaw = useTransform(scrollYProgress, [0, 1], ['50%', '-50%']);
+  const xRaw = useTransform(scrollYProgress, [0, 1], ['75%', '-75%']);
   const x = useSpring(xRaw);
   return (
     <div className={'flex flex-col gap-y-4 w-full'} ref={targetRef}>
@@ -45,12 +50,10 @@ const VelocityMarquee = () => {
           skewX,
           x,
         }}
-        className={'w-full flex shrink-0 justify-between items-center'}
+        className={'w-full flex shrink-0 justify-between items-center gap-x-10'}
       >
-        {upperMarquee.map((src, ind) => {
-          return (
-            <Image src={src} alt={'pic'} width={100} height={120} key={ind} />
-          );
+        {upperMarquee.map((Logo, ind) => {
+          return <Logo key={ind} />;
         })}
       </motion.div>
     </div>
