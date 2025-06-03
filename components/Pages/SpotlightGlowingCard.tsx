@@ -9,20 +9,20 @@ import React, { useEffect, useRef, useState } from 'react';
 const data = [
   {
     id: 100,
-    title: '',
-    text: '',
+    title: 'پست آزمایشی',
+    text: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
     src: PhotoOne,
   },
   {
     id: 101,
-    title: '',
-    text: '',
+    title: 'پست آزمایشی',
+    text: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
     src: PhotoTwo,
   },
   {
     id: 102,
-    title: '',
-    text: '',
+    title: 'پست آزمایشی',
+    text: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است',
     src: PhotoThree,
   },
 ];
@@ -86,7 +86,7 @@ const Card = ({ ref, title, text, src }: CardProps) => {
     <div
       ref={ref}
       className={
-        'relative overflow-clip rounded-xl bg-zinc-800 w-[300px] h-[380px] group'
+        'relative overflow-clip rounded-xl bg-zinc-800 w-[300px] h-[380px] group cursor-pointer'
       }
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -115,17 +115,19 @@ const Card = ({ ref, title, text, src }: CardProps) => {
       {/* content */}
       <div
         className={
-          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-900 grid place-content-center z-20'
+          'absolute inset-0.5 rounded-xl overflow-clip bg-zinc-900 grid place-content-center z-20 px-1.5'
         }
       >
-        <div className={'flex flex-col h-full items-center text-center'}>
+        <div
+          className={'flex flex-col gap-y-2 h-full items-center text-center'}
+        >
           {/* Image Section */}
           <div className="relative inline-flex">
             <div
               className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl -z-10 rounded-full bg-indigo-600"
               aria-hidden="true"
             ></div>
-            <Image src={src} alt={'pic'} width={150} height={150} />
+            <Image src={src} alt={'pic'} width={180} height={180} />
             <div
               className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
               aria-hidden="true"
@@ -134,9 +136,13 @@ const Card = ({ ref, title, text, src }: CardProps) => {
             </div>
           </div>
           {/* Text */}
-          <div className="grow mb-5">
-            <h2 className="text-xl text-zinc-100 font-bold mb-1">{title}</h2>
-            <p className="text-sm text-gray-400">{text}</p>
+          <div className="grow flex flex-col gap-y-2">
+            <h2 className="text-xl text-zinc-100 font-normal font-iranYWL mb-1">
+              {title}
+            </h2>
+            <p className="text-xs text-gray-400 font-iranYWR leading-relaxed">
+              {text}
+            </p>
           </div>
         </div>
         <div
