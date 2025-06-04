@@ -1,10 +1,10 @@
-// import AnimateSection from '@/components/Animation/AnimateSection';
+import AnimateSection from '@/components/Animation/AnimateSection';
 import BlurIn from '@/components/Animation/BlurIn';
 import InfiniteMarquee from '@/components/Animation/InfiniteMarquee';
-// import HeroSvg from '@/components/Icons/HeroSvg';
-// import HeroSvgComplete from '@/components/Icons/HeroSvgComplete';
+import HeroSvg from '@/components/Icons/HeroSvg';
+import HeroSvgComplete from '@/components/Icons/HeroSvgComplete';
 import FeaturedPosts from '@/components/Pages/FeaturedPosts';
-import GithubContributionGraph from '@/components/Pages/GithubContributionGraph';
+// import GithubContributionGraph from '@/components/Pages/GithubContributionGraph';
 import Social from '@/components/Shared/Social';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
         className={'text-2xl font-bold'}
         delay={0.1}
       />*/}
-      {/*<AnimateSection className={'w-full xl:max-w-6xl mx-auto text-center'}>
+      <AnimateSection className={'w-full xl:max-w-6xl mx-auto text-center'}>
         <p className={'font-iranYWR text-2xl font-semibold leading-20'}>
           سلام! اسم من سپهره <span className={'text-3xl'}>👋</span>
         </p>
@@ -48,7 +48,7 @@ export default function Home() {
           <HeroSvgComplete />
         </div>
         <HeroSvg />
-      </AnimateSection>*/}
+      </AnimateSection>
       <div
         className={
           'flex flex-col gap-y-6 justify-center items-center my-10 w-full xl:max-w-6xl mx-auto'
@@ -62,7 +62,7 @@ export default function Home() {
           text={'شبکه های اجتماعی'}
         />
         <Social />
-        <GithubContributionGraph />
+        {/*<GithubContributionGraph />*/}
         <InfiniteMarquee />
         <FeaturedPosts />
       </div>
