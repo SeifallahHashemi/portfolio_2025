@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-// import { useTransitionRouter } from 'next-view-transitions';
+import { useTransitionRouter } from 'next-view-transitions';
 import React from 'react';
 
 interface LinkProps {
@@ -11,7 +11,7 @@ interface LinkProps {
 }
 
 const ViewTransitionLink = ({ link, className, children }: LinkProps) => {
-  // const router = useTransitionRouter();
+  const router = useTransitionRouter();
   return (
     <a
       href={link}
@@ -21,9 +21,9 @@ const ViewTransitionLink = ({ link, className, children }: LinkProps) => {
       )}
       onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
-        // router.push(link, {
-        //   onTransitionReady: slideInOut,
-        // });
+        router.push(link, {
+          onTransitionReady: slideInOut,
+        });
       }}
     >
       {children}
@@ -31,7 +31,7 @@ const ViewTransitionLink = ({ link, className, children }: LinkProps) => {
   );
 };
 
-/*function slideInOut() {
+function slideInOut() {
   document.documentElement.animate(
     [
       {
@@ -69,6 +69,6 @@ const ViewTransitionLink = ({ link, className, children }: LinkProps) => {
       pseudoElement: '::view-transition-new(root)',
     }
   );
-}*/
+}
 
 export default ViewTransitionLink;
