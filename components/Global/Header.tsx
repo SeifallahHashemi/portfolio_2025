@@ -1,9 +1,10 @@
-import ViewTransitionLink from '@/components/Animation/ViewTransitionLink';
+// import ViewTransitionLink from '@/components/Animation/ViewTransitionLink';
 import MobileMenu from '@/components/Global/MobileMenu';
 import { ThemeModeToggle } from '@/components/Theme/ThemeModeToggle';
 import Logo from '@/public/img/logo.webp';
-import { Link } from 'next-view-transitions';
 import Image from 'next/image';
+// import { Link } from 'next-view-transitions';
+import Link from 'next/link';
 import React from 'react';
 
 interface Data {
@@ -52,9 +53,7 @@ const Header = () => {
           <ul className={'flex items-center gap-x-8'}>
             {data.map((item, index) => (
               <li key={'navigation-' + index}>
-                <ViewTransitionLink link={item.link}>
-                  {item.title}
-                </ViewTransitionLink>
+                <Link href={item.link}>{item.title}</Link>
               </li>
             ))}
           </ul>
