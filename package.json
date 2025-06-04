@@ -44,5 +44,10 @@
     "tailwindcss": "^4",
     "tw-animate-css": "^1.2.9",
     "typescript": "^5"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0",
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
   }
 }
