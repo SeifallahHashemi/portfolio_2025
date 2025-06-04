@@ -10,7 +10,8 @@ import DockAnimation from '@/components/Animation/DockAnimation';
 import Footer from '@/components/Global/Footer';
 import Header from '@/components/Global/Header';
 import Providers from '@/components/Providers/Providers';
-import { ViewTransitions } from 'next-view-transitions';
+
+// import { ViewTransitions } from 'next-view-transitions';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,19 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="fa" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background max-w-screen overflow-x-clip`}
-        >
-          <Providers>
-            <Header />
-            <DockAnimation />
-            {children}
-            <Footer />
-          </Providers>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html lang="fa" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background max-w-screen overflow-x-clip`}
+      >
+        <Providers>
+          <Header />
+          <DockAnimation />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
+    </html>
   );
 }
