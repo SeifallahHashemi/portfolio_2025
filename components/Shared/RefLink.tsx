@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
-import { Link } from 'next-view-transitions';
 import { Url } from 'next/dist/shared/lib/router/router';
+// import { Link } from 'next-view-transitions';
+import Link from 'next/link';
 import React, { HTMLAttributeAnchorTarget } from 'react';
 
 interface LinkProps {
