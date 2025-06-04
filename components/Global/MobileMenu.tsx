@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import Logo from '@/public/img/logo.avif';
+import Logo from '@/public/img/logo.webp';
 import { BookMarked, FlaskConical, Menu, User, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'next-view-transitions';
