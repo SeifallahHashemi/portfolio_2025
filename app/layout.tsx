@@ -36,14 +36,22 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="fa" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} !absolute antialiased !bg-background max-w-screen overflow-x-clip`}
+          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background max-w-screen overflow-x-clip`}
         >
-          <Providers>
-            <Header />
-            <DockAnimation />
-            {children}
-            <Footer />
-          </Providers>
+          <main
+            className={'min-h-screen w-screen max-w-[100dvw] overflow-x-clip'}
+            // dir={'rtl'}
+            style={{
+              direction: 'rtl',
+            }}
+          >
+            <Providers>
+              <Header />
+              <DockAnimation />
+              {children}
+              <Footer />
+            </Providers>
+          </main>
         </body>
       </html>
     </ViewTransitions>
