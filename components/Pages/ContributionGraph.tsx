@@ -1,11 +1,10 @@
 'use client';
 
-// import { github } from '@/components/Data/contribution-graph-theme';
+import { github } from '@/components/Data/contribution-graph-theme';
 import FilteredYearButton from '@/components/Shared/FilteredYearButton';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
-
-// import GitHubCalendar from 'react-github-calendar';
+import GitHubCalendar from 'react-github-calendar';
 
 const ContributionGraph = () => {
   const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
@@ -29,8 +28,6 @@ const ContributionGraph = () => {
     setUniqueTheme(scheme);
   }, [scheme]);
 
-  console.log(uniqueTheme);
-
   if (!username) {
     return (
       <div
@@ -50,7 +47,14 @@ const ContributionGraph = () => {
           '!font-mono border border-zinc-200 dark:border-zinc-800 rounded-lg dark:bg-slate-900/10 backdrop-blur-lg bg-white/30 p-6 max-w-fit max-h-fit'
         }
       >
-        {}
+        <GitHubCalendar
+          theme={github}
+          colorScheme={uniqueTheme}
+          username={username}
+          blockSize={13}
+          year={calendarYear ?? thisYear}
+          hideTotalCount={true}
+        />
       </div>
       <div
         className={'flex justify-start xl:flex-col flex-row flex-wrap gap-2'}
