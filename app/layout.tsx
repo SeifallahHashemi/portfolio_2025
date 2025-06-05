@@ -36,7 +36,7 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="fa" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} antialiased !bg-background max-w-screen overflow-x-clip`}
+          className={`${geistSans.variable} ${geistMono.variable} ${iranSans.variable} ${iranYekanWebLight.variable} ${iranYekanWebRegular.variable} !absolute antialiased !bg-background max-w-screen overflow-x-clip`}
         >
           <Providers>
             <Header />
