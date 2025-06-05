@@ -50,6 +50,9 @@ const ContributionGraph = () => {
         className={
           '!font-mono border border-zinc-200 dark:border-zinc-800 rounded-lg dark:bg-slate-900/10 backdrop-blur-lg bg-white/30 p-6 max-w-fit max-h-fit'
         }
+        style={{
+          direction: 'ltr',
+        }}
       >
         <GitHubCalendar
           theme={github}
