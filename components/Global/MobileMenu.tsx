@@ -75,8 +75,8 @@ const MobileMenu = () => {
                 src={Logo}
                 alt={'Logo'}
                 priority={true}
-                width={35}
-                height={35}
+                width={50}
+                height={50}
               />
             </Link>
             <Button
@@ -94,7 +94,7 @@ const MobileMenu = () => {
                 key={'link-' + title}
                 href={href}
                 className={
-                  'flex flex-row-reverse justify-start items-center gap-x-2 p-5 group font-iranYWL text-lg border-b dark:border-b-zinc-800 border-b-zinc-200'
+                  'flex flex-row justify-start items-center gap-x-2 p-5 group font-iranYWL text-lg border-b dark:border-b-zinc-800 border-b-zinc-200'
                 }
                 onClick={onToggleMobileNav}
               >
