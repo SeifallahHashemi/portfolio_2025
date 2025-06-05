@@ -146,7 +146,7 @@
     background-image: url("../public/img/noise.png");
     background-size: 200px 200px;
     background-position: 0 0;
-    direction: rtl;
+    direction: ltr;
   }
 
   ::view-transition-group(root) {
