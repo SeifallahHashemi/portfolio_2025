@@ -37,7 +37,7 @@ export default function Home() {
       <AnimateSection
         delay={0.3}
         className={
-          'w-full xl:max-w-6xl mx-auto flex justify-center items-center my-10 relative'
+          'w-full xl:max-w-6xl mx-auto hidden sm:flex justify-center items-center my-10 relative'
         }
       >
         <div
