@@ -29,6 +29,18 @@ const ContributionGraph = () => {
     setUniqueTheme(scheme);
   }, [scheme]);
 
+  if (!username) {
+    return (
+      <div
+        className={
+          'flex justify-center items-center text-base font-bold font-mono'
+        }
+      >
+        Error
+      </div>
+    );
+  }
+
   return (
     <div className={'flex flex-col xl:flex-row-reverse gap-4'}>
       <div
