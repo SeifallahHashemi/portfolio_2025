@@ -25,7 +25,7 @@ const Social = () => {
   };
   return (
     <motion.ul
-      className={'flex justify-center items-center gap-x-5 gap-y-4'}
+      className={'flex flex-wrap justify-center items-center gap-x-5 gap-y-4'}
       variants={containerVariants}
       initial={'initial'}
       animate={'animate'}
