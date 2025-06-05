@@ -9,7 +9,7 @@ import Social from '@/components/Shared/Social';
 
 export default function Home() {
   return (
-    <div className="min-h-screen max-w-screen overflow-x-clip">
+    <main className="min-h-screen max-w-screen overflow-x-clip">
       {/*<BlurIn text={'سلام! اسم من سپهره 👋'} className={'text-2xl font-bold'} />
       <BlurIn
         text={'برنامه نویس ارشد فرانت اند'}
@@ -66,6 +66,6 @@ export default function Home() {
         <InfiniteMarquee />
         <FeaturedPosts />
       </div>
-    </div>
+    </main>
   );
 }
