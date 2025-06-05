@@ -56,7 +56,7 @@ const ContributionGraph = () => {
           hideTotalCount={true}
         />
       </div>
-      <div
+      {/*<div
         className={'flex justify-start xl:flex-col flex-row flex-wrap gap-2'}
       >
         {Array.from({ length: duration }, (_y, i) => currentYear - i).map(
@@ -71,7 +71,7 @@ const ContributionGraph = () => {
             />
           )
         )}
-      </div>
+      </div>*/}
     </div>
   );
 };
