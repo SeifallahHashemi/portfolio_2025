@@ -1,7 +1,7 @@
 'use client';
 
 import { github } from '@/components/Data/contribution-graph-theme';
-import FilteredYearButton from '@/components/Shared/FilteredYearButton';
+// import FilteredYearButton from '@/components/Shared/FilteredYearButton';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
@@ -17,9 +17,7 @@ const ContributionGraph = () => {
   const [uniqueTheme, setUniqueTheme] = useState<'light' | 'dark' | undefined>(
     theme as 'light' | 'dark'
   );
-  const [calendarYear, setCalendarYear] = useState<number | undefined>(
-    undefined
-  );
+  const [calendarYear] = useState<number | undefined>(2025);
 
   const scheme =
     theme === 'light' ? 'light' : theme === 'dark' ? 'dark' : systemTheme;
@@ -35,7 +33,7 @@ const ContributionGraph = () => {
           'flex justify-center items-center text-base font-bold font-mono'
         }
       >
-        Error
+        Error - {duration}
       </div>
     );
   }
