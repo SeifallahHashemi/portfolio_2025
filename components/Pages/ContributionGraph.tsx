@@ -7,8 +7,7 @@ import React, { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 
 const ContributionGraph = () => {
-  const username =
-    process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? 'SeifallahHashemi';
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME;
   const currentYear = new Date().getFullYear();
   const startYear = 2021;
   const duration = currentYear - startYear;
