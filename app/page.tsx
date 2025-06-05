@@ -9,7 +9,7 @@ import Social from '@/components/Shared/Social';
 
 export default function Home() {
   return (
-    <main className="min-h-screen max-w-screen overflow-x-clip">
+    <main className="min-h-screen w-full px-1 sm:px-0 max-w-screen overflow-x-clip">
       {/*<BlurIn text={'سلام! اسم من سپهره 👋'} className={'text-2xl font-bold'} />
       <BlurIn
         text={'برنامه نویس ارشد فرانت اند'}
