@@ -27,7 +27,7 @@ export default function Home() {
       >
         <p
           className={
-            'font-iranYWR text-base font-normal leading-relaxed text-balance text-zinc-400 dark:text-zinc-600'
+            'font-iranYWR text-base font-normal leading-relaxed text-pretty sm:text-balance text-zinc-400 dark:text-zinc-600'
           }
         >
           من سپهر هاشمی هستم، یک توسعه دهنده باتجربه که مشتاق یادگیری و ساختن
