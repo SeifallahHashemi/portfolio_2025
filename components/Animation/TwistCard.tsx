@@ -21,11 +21,9 @@ const TwistCard = () => {
       initial={'initial'}
       animate={'animate'}
       transition={{
-        duration: 30,
-        type: 'spring',
-        stiffness: 90,
-        damping: 18,
-        mass: 1.2,
+        duration: 0.5,
+        type: 'tween',
+        ease: 'linear',
       }}
       className={'max-w-fit max-h-fit bg-zinc-100 rounded-full'}
     >
