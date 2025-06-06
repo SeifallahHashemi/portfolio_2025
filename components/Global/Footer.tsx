@@ -15,7 +15,9 @@ const Footer = () => {
       }
     >
       <div
-        className={'w-full max-w-6xl mx-auto flex justify-between items-center'}
+        className={
+          'w-full max-w-6xl mx-auto flex flex-col sm:flex-row gap-y-4 sm:gap-y-0 justify-between items-center'
+        }
       >
         <div className={'flex gap-2 items-center'}>
           <h3 className={'font-iranYWR font-medium text-xs'}>
