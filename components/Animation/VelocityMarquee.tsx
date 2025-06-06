@@ -44,13 +44,15 @@ const VelocityMarquee = () => {
   const xRaw = useTransform(scrollYProgress, [0, 1], ['75%', '-75%']);
   const x = useSpring(xRaw);
   return (
-    <div className={'flex flex-col gap-y-4 w-full'} ref={targetRef}>
+    <div className={'flex flex-col gap-y-4 w-[300%] sm:w-full'} ref={targetRef}>
       <motion.div
         style={{
           skewX,
           x,
         }}
-        className={'w-full flex shrink-0 justify-between items-center gap-x-10'}
+        className={
+          'w-full flex shrink-0 justify-between items-center gap-x-6 sm:gap-x-10'
+        }
       >
         {upperMarquee.map((Logo, ind) => {
           return <Logo key={ind} />;
