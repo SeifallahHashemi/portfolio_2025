@@ -20,7 +20,9 @@ const GithubContributionGraph = () => {
       </AnimateSection>
       <AnimateSection
         delay={0.8}
-        className={'w-full max-w-screen mx-auto sm:max-w-6xl px-1 sm:px-0'}
+        className={
+          'w-full max-w-screen mx-auto sm:max-w-6xl px-2 sm:px-4 xl:px-0'
+        }
       >
         <ContributionGraph />
       </AnimateSection>
