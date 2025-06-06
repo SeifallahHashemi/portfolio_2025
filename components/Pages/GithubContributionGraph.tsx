@@ -12,7 +12,7 @@ const GithubContributionGraph = () => {
       <AnimateSection delay={0.7}>
         <h2
           className={
-            'text-zinc-800 dark:text-white text-base font-iranYWL font-bold leading-relaxed text-right'
+            'text-zinc-800 dark:text-white text-base font-iranYWL font-bold leading-relaxed text-center'
           }
         >
           نمودار فعالیت گیت هاب
