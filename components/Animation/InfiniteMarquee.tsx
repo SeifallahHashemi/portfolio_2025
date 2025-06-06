@@ -19,7 +19,7 @@ const InfiniteMarquee = () => {
           مهارت ها
         </h2>
       </AnimateSection>
-      <AnimateSection delay={1}>
+      <AnimateSection delay={1} className={'hidden sm:flex'}>
         <VelocityMarquee />
       </AnimateSection>
       <AnimateSection delay={1} className={'w-full flex sm:hidden'}>
