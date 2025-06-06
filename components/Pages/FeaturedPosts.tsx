@@ -9,7 +9,10 @@ const FeaturedPosts = () => {
         'my-40 w-full xl:max-w-6xl mx-auto flex flex-col justify-center items-center gap-y-10'
       }
     >
-      <AnimateSection delay={1.1}>
+      <AnimateSection
+        delay={1.1}
+        className={'w-full xl:max-w-6xl mx-auto text-center'}
+      >
         <h2
           className={
             'font-bold text-lg text-center font-iranYWL text-zinc-800 dark:text-white leading-relaxed'
