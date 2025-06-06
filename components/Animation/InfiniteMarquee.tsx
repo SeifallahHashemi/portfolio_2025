@@ -1,4 +1,5 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
+import Marquee from '@/components/Animation/Marquee';
 import VelocityMarquee from '@/components/Animation/VelocityMarquee';
 import React from 'react';
 
@@ -20,6 +21,9 @@ const InfiniteMarquee = () => {
       </AnimateSection>
       <AnimateSection delay={1}>
         <VelocityMarquee />
+      </AnimateSection>
+      <AnimateSection delay={1} className={'w-full flex sm:hidden'}>
+        <Marquee />
       </AnimateSection>
     </section>
   );
