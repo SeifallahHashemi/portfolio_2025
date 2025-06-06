@@ -23,8 +23,8 @@ const TwistCard = () => {
       transition={{
         duration: 30,
         type: 'spring',
-        stiffness: 400,
-        damping: 30,
+        stiffness: 300,
+        damping: 10,
         mass: 1,
       }}
       className={'max-w-fit max-h-fit bg-zinc-100 rounded-full'}
