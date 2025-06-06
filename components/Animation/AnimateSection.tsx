@@ -43,8 +43,9 @@ const AnimateSection = ({
       animate={controls}
       variants={variants}
       transition={{ duration: 0.5 }}
+      className={cn('w-full', className)}
     >
-      <div className={cn('', className)}>{children}</div>
+      <div>{children}</div>
     </motion.div>
   );
 };
