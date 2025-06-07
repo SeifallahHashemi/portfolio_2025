@@ -1,9 +1,10 @@
 'use client';
 
+import { sleep } from '@/lib/utils';
 import LogoPop from '@/public/img/pop-1.png';
 import TeamPop from '@/public/img/pop.png';
 import { motion, useAnimation } from 'motion/react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 interface TCard {
@@ -13,7 +14,7 @@ interface TCard {
   alt: string;
 }
 
-const Cards: TCard[] = [
+const cards: TCard[] = [
   {
     id: 1,
     frontImage: TeamPop,
@@ -21,7 +22,7 @@ const Cards: TCard[] = [
     alt: 'popularity football club image: barcelona',
   },
   {
-    id: 1,
+    id: 2,
     frontImage: LogoPop,
     backImage: TeamPop,
     alt: 'popularity football club image: barcelona',
@@ -34,20 +35,46 @@ const TwistCard = () => {
   const backControl = useAnimation();
 
   useEffect(() => {
-    const timer = setTimeout(async () => {
-      await frontControl.start({
-        rotateY: 90,
-      });
-      await backControl.start({
-        rotateY: 0,
-      });
-      setActiveCardInd(1);
-    }, 2000);
+    const sequence = async () => {
+      if (activeCardInd === 0) {
+        await frontControl.start({
+          rotateY: 0,
+        });
+        await sleep(2000);
+        await frontControl.start({
+          rotateY: 90,
+        });
+        await backControl.start({
+          rotateY: 0,
+        });
+      }
+      if (activeCardInd !== 0 && activeCardInd % 2 === 0) {
+        await frontControl.start({
+          rotateY: 90,
+        });
+        await backControl.start({
+          rotateY: 0,
+        });
+      }
+      if (activeCardInd !== 0 && activeCardInd % 2 !== 0) {
+        await frontControl.start({
+          rotateY: 0,
+        });
+        await backControl.start({
+          rotateY: 90,
+        });
+      }
 
-    return () => {
-      clearTimeout(timer);
+      setActiveCardInd((prevState) => {
+        if (prevState === cards.length - 1) {
+          return 0;
+        }
+        return prevState + 1;
+      });
+      setTimeout(sequence, 2000);
     };
-  }, [frontControl, backControl]);
+    sequence();
+  }, [frontControl, backControl, activeCardInd]);
 
   // useEffect(() => {
   //   const sequence = async () => {
@@ -66,7 +93,7 @@ const TwistCard = () => {
       className={'w-screen h-screen flex justify-center items-center relative'}
     >
       <motion.div
-        initial={{ rotateY: 0 }}
+        initial={{ rotateY: 90 }}
         animate={frontControl}
         transition={{
           duration: 0.5,
@@ -78,14 +105,16 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={Cards[activeCardInd].frontImage}
+          src={cards[activeCardInd].frontImage}
           alt={'Team Pop'}
           width={300}
           height={300}
         />
       </motion.div>
       <motion.div
-        initial={'initial'}
+        initial={{
+          rotateY: 90,
+        }}
         animate={backControl}
         transition={{
           duration: 0.5,
@@ -97,7 +126,7 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={Cards[activeCardInd].backImage}
+          src={cards[activeCardInd].backImage}
           alt={'Team Pop'}
           width={300}
           height={300}
