@@ -8,22 +8,19 @@ import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 interface TCard {
-  id: number;
-  frontImage: string | StaticImageData;
+  src: string | StaticImageData;
   backImage: string | StaticImageData;
   alt: string;
 }
 
 const cards: TCard[] = [
   {
-    id: 1,
-    frontImage: TeamPop,
+    src: TeamPop,
     backImage: LogoPop,
     alt: 'popularity football club image: barcelona',
   },
   {
-    id: 2,
-    frontImage: LogoPop,
+    src: LogoPop,
     backImage: TeamPop,
     alt: 'popularity football club image: barcelona',
   },
