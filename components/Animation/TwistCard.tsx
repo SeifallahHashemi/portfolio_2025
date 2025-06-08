@@ -33,12 +33,14 @@ const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
   const controls = useAnimation();
+  const containerControls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
     const enterAnimation = async () => {
       if (activeCardInd % 2 === 0) {
         controls.start('animate');
+        containerControls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
@@ -51,6 +53,7 @@ const TwistCard = () => {
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         controls.set('initial');
+        containerControls.set('initial');
         setActiveCardInd((prevState) => {
           if (prevState === cards.length - 1) {
             return 0;
@@ -59,6 +62,7 @@ const TwistCard = () => {
         });
       } else {
         controls.start('animate');
+        containerControls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
@@ -71,6 +75,7 @@ const TwistCard = () => {
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         controls.set('initial');
+        containerControls.set('initial');
         setActiveCardInd((prevState) => {
           if (prevState === cards.length - 1) {
             return 0;
@@ -88,7 +93,7 @@ const TwistCard = () => {
     return () => {
       isMounted = false;
     };
-  }, [animate, activeCardInd]);
+  }, [animate, activeCardInd, controls, containerControls]);
 
   return (
     <>
@@ -107,7 +112,7 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <SandBar controls={controls} />
+      <SandBar controls={controls} containerControls={containerControls} />
     </>
   );
 };
