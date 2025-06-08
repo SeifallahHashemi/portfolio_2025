@@ -1,10 +1,11 @@
 'use client';
 
+import SandBar from '@/components/Animation/SandBar';
 import { sleep } from '@/lib/utils';
 import LogoPop from '@/public/img/pop-1.png';
 import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
-import { motion, useAnimate } from 'motion/react';
+import { motion, useAnimate, useAnimation } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
@@ -31,11 +32,13 @@ const cards: TCard[] = [
 const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
+  const controls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
     const enterAnimation = async () => {
       if (activeCardInd % 2 === 0) {
+        controls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
@@ -47,6 +50,7 @@ const TwistCard = () => {
           { rotateY: 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
+        controls.set('initial');
         setActiveCardInd((prevState) => {
           if (prevState === cards.length - 1) {
             return 0;
@@ -54,6 +58,7 @@ const TwistCard = () => {
           return prevState + 1;
         });
       } else {
+        controls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
@@ -65,6 +70,7 @@ const TwistCard = () => {
           { rotateY: 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
+        controls.set('initial');
         setActiveCardInd((prevState) => {
           if (prevState === cards.length - 1) {
             return 0;
@@ -85,21 +91,24 @@ const TwistCard = () => {
   }, [animate, activeCardInd]);
 
   return (
-    <div ref={scope} className={'w-screen h-96 flex justify-center relative'}>
-      <motion.div
-        initial={{ rotateY: 90 }}
-        className={
-          'max-w-fit max-h-fit bg-white/30 dark:bg-slate-950/10 backdrop-blur-xl border border-zinc-200 dark:border-zinc-900 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-colors duration-500'
-        }
-      >
-        <Image
-          src={cards[activeCardInd].src}
-          alt={'Team Pop'}
-          width={300}
-          height={300}
-        />
-      </motion.div>
-    </div>
+    <>
+      <div ref={scope} className={'w-screen h-96 flex justify-center relative'}>
+        <motion.div
+          initial={{ rotateY: 90 }}
+          className={
+            'max-w-fit max-h-fit bg-white/30 dark:bg-slate-950/10 backdrop-blur-xl border border-zinc-200 dark:border-zinc-900 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-colors duration-500'
+          }
+        >
+          <Image
+            src={cards[activeCardInd].src}
+            alt={'Team Pop'}
+            width={300}
+            height={300}
+          />
+        </motion.div>
+      </div>
+      <SandBar controls={controls} />
+    </>
   );
 };
 
