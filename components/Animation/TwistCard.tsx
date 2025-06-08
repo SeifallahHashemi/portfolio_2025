@@ -9,19 +9,16 @@ import React, { useEffect, useState } from 'react';
 
 interface TCard {
   src: string | StaticImageData;
-  backImage: string | StaticImageData;
   alt: string;
 }
 
 const cards: TCard[] = [
   {
     src: TeamPop,
-    backImage: LogoPop,
     alt: 'popularity football club image: barcelona',
   },
   {
     src: LogoPop,
-    backImage: TeamPop,
     alt: 'popularity football club image: barcelona',
   },
 ];
@@ -84,7 +81,7 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={cards[activeCardInd].frontImage}
+          src={cards[activeCardInd].src}
           alt={'Team Pop'}
           width={300}
           height={300}
@@ -97,7 +94,7 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={cards[activeCardInd].backImage}
+          src={cards[activeCardInd].src}
           alt={'Team Pop'}
           width={300}
           height={300}
