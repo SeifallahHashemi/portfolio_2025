@@ -20,10 +20,10 @@ const SandBar = ({
   };
   const containerVariants = {
     initial: {
-      scale: 0.8,
+      scaleY: 0.9,
     },
     animate: {
-      scale: 1,
+      scaleY: 1,
     },
   };
   return (
