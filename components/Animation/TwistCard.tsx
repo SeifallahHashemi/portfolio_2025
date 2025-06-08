@@ -2,6 +2,7 @@
 
 import { sleep } from '@/lib/utils';
 import LogoPop from '@/public/img/pop-1.png';
+import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
 import { motion, useAnimate } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
@@ -22,7 +23,7 @@ const cards: TCard[] = [
     alt: 'popularity football club image: barcelona',
   },
   {
-    src: TeamPop,
+    src: MoviePop,
     alt: 'popularity football club image: barcelona',
   },
   {
