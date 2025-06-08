@@ -59,12 +59,13 @@ const TwistCard = () => {
       } else {
         await animate(
           ':scope > div',
-          { rotateY: 90 },
+          { rotateY: 0 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
+        await sleep(2000);
         await animate(
           ':scope > div',
-          { rotateY: 0 },
+          { rotateY: 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         setActiveCardInd((prevState) => {
