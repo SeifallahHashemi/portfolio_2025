@@ -26,44 +26,40 @@ const cards: TCard[] = [
 const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
-  const [previewCardInd, setPreviewCardInd] = useState(
-    activeCardInd !== undefined ? activeCardInd + 1 : 1
-  );
 
   useEffect(() => {
     let isMounted = true;
     const enterAnimation = async () => {
-      if (activeCardInd === 0) {
+      if (activeCardInd % 2 === 0) {
         await animate(
-          ':scope > div:first-of-type',
-          { rotateY: activeCardInd % 2 === 0 ? 0 : 90 },
+          ':scope > div',
+          { rotateY: 0 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         await sleep(2000);
         await animate(
-          ':scope > div:first-of-type',
-          { rotateY: activeCardInd % 2 === 0 ? 90 : 0 },
+          ':scope > div',
+          { rotateY: 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
+        setActiveCardInd((prevState) => prevState + 1);
+      } else {
+        await animate(
+          ':scope > div',
+          { rotateY: 90 },
+          { duration: 0.5, type: 'tween', ease: 'linear' }
+        );
+        await animate(
+          ':scope > div',
+          { rotateY: 0 },
+          { duration: 0.5, type: 'tween', ease: 'linear' }
+        );
+        setActiveCardInd((prevState) => prevState + 1);
       }
-    };
-    const exitAnimation = async () => {
-      await animate(
-        ':scope > div:nth-of-type(2)',
-        { rotateY: activeCardInd % 2 === 0 ? 0 : 90 },
-        { duration: 0.5, type: 'tween', ease: 'linear' }
-      );
-      await sleep(2000);
-      await animate(
-        ':scope > div:nth-of-type(2)',
-        { rotateY: activeCardInd % 2 === 0 ? 90 : 0 },
-        { duration: 0.5, type: 'tween', ease: 'linear' }
-      );
     };
     const loop = async () => {
       while (isMounted) {
         await enterAnimation();
-        await exitAnimation();
       }
     };
     loop();
@@ -85,19 +81,6 @@ const TwistCard = () => {
       >
         <Image
           src={cards[activeCardInd].src}
-          alt={'Team Pop'}
-          width={300}
-          height={300}
-        />
-      </motion.div>
-      <motion.div
-        initial={{ rotateY: 90 }}
-        className={
-          'max-w-fit max-h-fit bg-zinc-100 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-        }
-      >
-        <Image
-          src={cards[previewCardInd].src}
           alt={'Team Pop'}
           width={300}
           height={300}
