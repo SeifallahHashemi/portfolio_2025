@@ -96,7 +96,7 @@ const TwistCard = () => {
       <motion.div
         initial={{ rotateY: 90 }}
         className={
-          'max-w-fit max-h-fit bg-zinc-100 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+          'max-w-fit max-h-fit bg-white/15 dark:bg-black/10 backdrop-blur-2xl rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         }
       >
         <Image
