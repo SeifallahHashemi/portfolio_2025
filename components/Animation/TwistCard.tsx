@@ -26,6 +26,9 @@ const cards: TCard[] = [
 const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
+  const [previewCardInd, setPreviewCardInd] = useState(
+    activeCardInd !== undefined ? activeCardInd + 1 : 1
+  );
 
   useEffect(() => {
     let isMounted = true;
@@ -94,7 +97,7 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={cards[activeCardInd + 1].src}
+          src={cards[previewCardInd].src}
           alt={'Team Pop'}
           width={300}
           height={300}
