@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { AnimationControls, motion } from 'motion/react';
 import React from 'react';
 
-const SandBar = () => {
+const SandBar = ({ controls }: { controls: AnimationControls }) => {
   return (
     <div className={'absolute inset-0 flex justify-end'}>
       <motion.div
@@ -12,7 +12,16 @@ const SandBar = () => {
         }
       >
         <motion.div
-          className={'absolute top-0 left-0 w-full h-full bg-violet-950'}
+          initial={{
+            top: '-100%',
+          }}
+          animate={controls}
+          transition={{
+            duration: 2.5,
+            ease: 'easeInOut',
+            repeat: Infinity,
+          }}
+          className={'absolute left-0 w-full h-full bg-rose-950'}
         ></motion.div>
       </motion.div>
     </div>
