@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutPage = () => {
   return (
-    <div className={'min-h-screen grid place-content-center'}>
+    <div className={'min-h-screen'}>
       <TwistCard />
     </div>
   );
