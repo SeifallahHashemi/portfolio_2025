@@ -20,10 +20,10 @@ const SandBar = ({
   };
   const containerVariants = {
     initial: {
-      scaleY: 0.9,
+      scaleY: 0.8,
     },
     animate: {
-      scaleY: 1,
+      scaleY: 1.05,
     },
   };
   return (
@@ -37,7 +37,7 @@ const SandBar = ({
           ease: [0.36, 0, 0.64, 1],
         }}
         className={
-          'sticky top-4 left-10 w-8 h-60 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip'
+          'sticky top-4 left-10 w-8 h-60 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
         }
       >
         <motion.div
@@ -48,7 +48,7 @@ const SandBar = ({
             duration: 2.5,
             ease: [0.36, 0, 0.64, 1],
           }}
-          className={'absolute left-0 w-full h-full bg-rose-950'}
+          className={'absolute left-0 w-full h-full bg-zinc-200'}
         ></motion.div>
       </motion.div>
     </div>
