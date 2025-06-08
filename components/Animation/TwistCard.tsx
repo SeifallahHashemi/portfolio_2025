@@ -15,19 +15,15 @@ interface TCard {
 
 const cards: TCard[] = [
   {
+    src: LogoPop,
+    alt: 'popularity football club image: barcelona',
+  },
+  {
     src: TeamPop,
     alt: 'popularity football club image: barcelona',
   },
   {
-    src: LogoPop,
-    alt: 'popularity football club image: barcelona',
-  },
-  {
     src: MoviePop,
-    alt: 'popularity football club image: barcelona',
-  },
-  {
-    src: LogoPop,
     alt: 'popularity football club image: barcelona',
   },
 ];
@@ -89,10 +85,7 @@ const TwistCard = () => {
   }, [animate, activeCardInd]);
 
   return (
-    <div
-      ref={scope}
-      className={'w-screen h-screen flex justify-center items-center relative'}
-    >
+    <div ref={scope} className={'w-screen h-96 flex justify-center relative'}>
       <motion.div
         initial={{ rotateY: 90 }}
         className={
