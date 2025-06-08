@@ -13,11 +13,9 @@ const SandBar = ({
   const variants = {
     initial: {
       top: '-100%',
-      scale: 0.8,
     },
     animate: {
       top: '0%',
-      scale: 1,
     },
   };
   const containerVariants = {
@@ -34,6 +32,10 @@ const SandBar = ({
         variants={containerVariants}
         initial={'initial'}
         animate={containerControls}
+        transition={{
+          duration: 2.5,
+          ease: [0.36, 0, 0.64, 1],
+        }}
         className={
           'sticky top-4 left-10 w-8 h-60 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip'
         }
@@ -45,7 +47,6 @@ const SandBar = ({
           transition={{
             duration: 2.5,
             ease: [0.36, 0, 0.64, 1],
-            // repeat: Infinity,
           }}
           className={'absolute left-0 w-full h-full bg-rose-950'}
         ></motion.div>
