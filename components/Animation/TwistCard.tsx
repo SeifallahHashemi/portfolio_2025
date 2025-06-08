@@ -1,5 +1,6 @@
 'use client';
 
+import { sleep } from '@/lib/utils';
 import LogoPop from '@/public/img/pop-1.png';
 import TeamPop from '@/public/img/pop.png';
 import { motion, useAnimate } from 'motion/react';
@@ -34,20 +35,45 @@ const TwistCard = () => {
 
   useEffect(() => {
     let isMounted = true;
-    const loop = async () => {
-      while (isMounted) {
+    const enterAnimation = async () => {
+      if (activeCardInd === 0) {
         await animate(
-          'div:first-child',
-          { rotateY: 90 },
+          ':scope > div:first-of-type',
+          { rotateY: activeCardInd % 2 === 0 ? 0 : 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
+        await sleep(2000);
+        await animate(
+          ':scope > div:first-of-type',
+          { rotateY: activeCardInd % 2 === 0 ? 90 : 0 },
+          { duration: 0.5, type: 'tween', ease: 'linear' }
+        );
+      }
+    };
+    const exitAnimation = async () => {
+      await animate(
+        ':scope > div:nth-of-type(2)',
+        { rotateY: activeCardInd % 2 === 0 ? 0 : 90 },
+        { duration: 0.5, type: 'tween', ease: 'linear' }
+      );
+      await sleep(2000);
+      await animate(
+        ':scope > div:nth-of-type(2)',
+        { rotateY: activeCardInd % 2 === 0 ? 90 : 0 },
+        { duration: 0.5, type: 'tween', ease: 'linear' }
+      );
+    };
+    const loop = async () => {
+      while (isMounted) {
+        await enterAnimation();
+        await exitAnimation();
       }
     };
     loop();
     return () => {
       isMounted = false;
     };
-  }, [animate]);
+  }, [animate, activeCardInd]);
 
   return (
     <div
@@ -55,7 +81,7 @@ const TwistCard = () => {
       className={'w-screen h-screen flex justify-center items-center relative'}
     >
       <motion.div
-        initial={{ rotateY: 0 }}
+        initial={{ rotateY: 90 }}
         className={
           'max-w-fit max-h-fit bg-zinc-100 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         }
@@ -68,7 +94,7 @@ const TwistCard = () => {
         />
       </motion.div>
       <motion.div
-        initial={{ rotateY: 0 }}
+        initial={{ rotateY: 90 }}
         className={
           'max-w-fit max-h-fit bg-zinc-100 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         }
