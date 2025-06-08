@@ -21,6 +21,14 @@ const cards: TCard[] = [
     src: LogoPop,
     alt: 'popularity football club image: barcelona',
   },
+  {
+    src: TeamPop,
+    alt: 'popularity football club image: barcelona',
+  },
+  {
+    src: LogoPop,
+    alt: 'popularity football club image: barcelona',
+  },
 ];
 
 const TwistCard = () => {
@@ -42,7 +50,12 @@ const TwistCard = () => {
           { rotateY: 90 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
-        setActiveCardInd((prevState) => prevState + 1);
+        setActiveCardInd((prevState) => {
+          if (prevState === cards.length - 1) {
+            return 0;
+          }
+          return prevState + 1;
+        });
       } else {
         await animate(
           ':scope > div',
@@ -54,7 +67,12 @@ const TwistCard = () => {
           { rotateY: 0 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
-        setActiveCardInd((prevState) => prevState + 1);
+        setActiveCardInd((prevState) => {
+          if (prevState === cards.length - 1) {
+            return 0;
+          }
+          return prevState + 1;
+        });
       }
     };
     const loop = async () => {
