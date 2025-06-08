@@ -94,7 +94,7 @@ const TwistCard = () => {
         }
       >
         <Image
-          src={cards[activeCardInd].src}
+          src={cards[activeCardInd + 1].src}
           alt={'Team Pop'}
           width={300}
           height={300}
