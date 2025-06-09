@@ -109,7 +109,7 @@ const TwistCard = () => {
         </motion.div>
       </div>
       <SandBar controls={controls} containerControls={controls} />
-      <Whispers activeInd={activeCardInd} />
+      <Whispers activeInd={activeCardInd} controls={controls} />
     </>
   );
 };

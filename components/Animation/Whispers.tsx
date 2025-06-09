@@ -28,6 +28,13 @@ const Whispers = ({ activeInd, controls }: WhispersProps) => {
         animate={controls}
         exit={'exit'}
         variants={variants}
+        transition={{
+          duration: 1,
+          type: 'spring',
+          stiffness: 300,
+          damping: 100,
+          mass: 1,
+        }}
         className={
           'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
         }
