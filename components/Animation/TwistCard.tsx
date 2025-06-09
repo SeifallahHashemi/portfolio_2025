@@ -94,7 +94,7 @@ const TwistCard = () => {
     return () => {
       isMounted = false;
     };
-  }, [animate, activeCardInd, controls]);
+  }, [animate, activeCardInd, controls, whisperControls]);
 
   return (
     <>
