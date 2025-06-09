@@ -3,9 +3,12 @@
 import SandBar from '@/components/Animation/SandBar';
 import Whispers from '@/components/Animation/Whispers';
 import { sleep } from '@/lib/utils';
+import ActPop from '@/public/img/act-pop.png';
 import LogoPop from '@/public/img/pop-1.png';
 import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
+import SeriesPop from '@/public/img/series-pop.png';
+import YoutubeChanelPop from '@/public/img/yc-pop.png';
 import { motion, useAnimate, useAnimation } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
