@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'motion/react';
 import React from 'react';
 
 const sentence = [
@@ -11,15 +12,23 @@ const sentence = [
 interface WhispersProps {
   activeInd: number;
 }
+
+const variants = {
+  initial: { filter: 'blur(0.5rem)', opacity: 0 },
+  animate: { filter: 'blur(0)', opacity: 1 },
+  exit: { filter: 'blur(0.5rem)', opacity: 0 },
+};
+
 const Whispers = ({ activeInd }: WhispersProps) => {
   return (
-    <div
+    <motion.div
+      variants={variants}
       className={
         'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
       }
     >
       {sentence[activeInd]}
-    </div>
+    </motion.div>
   );
 };
 
