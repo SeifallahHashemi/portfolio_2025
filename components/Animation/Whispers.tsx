@@ -22,6 +22,9 @@ const variants = {
 const Whispers = ({ activeInd }: WhispersProps) => {
   return (
     <motion.div
+      initial={'initial'}
+      animate={'animate'}
+      exit={'exit'}
       variants={variants}
       className={
         'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
