@@ -49,7 +49,7 @@ const SandBar = ({
             ease: [0.36, 0, 0.64, 1],
           }}
           className={
-            'absolute left-0 w-full h-full bg-zinc-200 dark:bg-portfolio-primary rounded-4xl'
+            'absolute left-0 w-full h-full bg-zinc-200 dark:bg-zinc-900 rounded-4xl'
           }
         ></motion.div>
       </motion.div>
