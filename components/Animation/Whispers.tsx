@@ -12,7 +12,15 @@ interface WhispersProps {
   activeInd: number;
 }
 const Whispers = ({ activeInd }: WhispersProps) => {
-  return <div>{sentence[activeInd]}</div>;
+  return (
+    <div
+      className={
+        'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
+      }
+    >
+      {sentence[activeInd]}
+    </div>
+  );
 };
 
 export default Whispers;
