@@ -37,7 +37,7 @@ const SandBar = ({
           ease: [0.36, 0, 0.64, 1],
         }}
         className={
-          'sticky top-4 left-10 w-6 h-60 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
+          'sticky top-4 left-4 w-4 h-72 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
         }
       >
         <motion.div
@@ -49,7 +49,7 @@ const SandBar = ({
             ease: [0.36, 0, 0.64, 1],
           }}
           className={
-            'absolute left-0 w-full h-full bg-zinc-200 dark:bg-gray-300 rounded-4xl'
+            'absolute left-0 w-full h-full bg-zinc-200 dark:bg-portfolio-primary rounded-4xl'
           }
         ></motion.div>
       </motion.div>
