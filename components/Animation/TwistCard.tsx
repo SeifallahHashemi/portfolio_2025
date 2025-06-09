@@ -1,6 +1,7 @@
 'use client';
 
 import SandBar from '@/components/Animation/SandBar';
+import Whispers from '@/components/Animation/Whispers';
 import { sleep } from '@/lib/utils';
 import LogoPop from '@/public/img/pop-1.png';
 import MoviePop from '@/public/img/pop-2.png';
@@ -113,6 +114,7 @@ const TwistCard = () => {
         </motion.div>
       </div>
       <SandBar controls={controls} containerControls={containerControls} />
+      <Whispers activeInd={activeCardInd} />
     </>
   );
 };
