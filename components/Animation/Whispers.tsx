@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { AnimatePresence, AnimationControls, motion } from 'motion/react';
 import React from 'react';
 
 const sentence = [
@@ -11,6 +11,7 @@ const sentence = [
 
 interface WhispersProps {
   activeInd: number;
+  controls: AnimationControls;
 }
 
 const variants = {
@@ -19,19 +20,21 @@ const variants = {
   exit: { filter: 'blur(0.5rem)', opacity: 0 },
 };
 
-const Whispers = ({ activeInd }: WhispersProps) => {
+const Whispers = ({ activeInd, controls }: WhispersProps) => {
   return (
-    <motion.div
-      initial={'initial'}
-      animate={'animate'}
-      exit={'exit'}
-      variants={variants}
-      className={
-        'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
-      }
-    >
-      {sentence[activeInd]}
-    </motion.div>
+    <AnimatePresence mode={'wait'}>
+      <motion.div
+        initial={'initial'}
+        animate={controls}
+        exit={'exit'}
+        variants={variants}
+        className={
+          'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
+        }
+      >
+        {sentence[activeInd]}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
