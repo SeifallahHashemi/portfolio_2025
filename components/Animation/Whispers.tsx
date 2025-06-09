@@ -17,7 +17,7 @@ interface WhispersProps {
 const variants = {
   initial: { filter: 'blur(1rem)', opacity: 0 },
   animate: { filter: 'blur(0)', opacity: 1 },
-  exit: { filter: 'blur(0.5rem)', opacity: 0 },
+  exit: { filter: 'blur(1rem)', opacity: 0 },
 };
 
 const Whispers = ({ activeInd, controls }: WhispersProps) => {
@@ -29,7 +29,7 @@ const Whispers = ({ activeInd, controls }: WhispersProps) => {
         exit={'exit'}
         variants={variants}
         transition={{
-          duration: 1,
+          duration: 0.5,
           type: 'tween',
           ease: 'linear',
         }}
