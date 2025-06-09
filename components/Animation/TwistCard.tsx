@@ -34,18 +34,21 @@ const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
   const controls = useAnimation();
+  const whisperControls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
     const enterAnimation = async () => {
       if (activeCardInd % 2 === 0) {
         controls.start('animate');
+        whisperControls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         await sleep(2000);
+        whisperControls.start('exit');
         await animate(
           ':scope > div',
           { rotateY: 90 },
@@ -60,12 +63,14 @@ const TwistCard = () => {
         });
       } else {
         controls.start('animate');
+        whisperControls.start('animate');
         await animate(
           ':scope > div',
           { rotateY: 0 },
           { duration: 0.5, type: 'tween', ease: 'linear' }
         );
         await sleep(2000);
+        whisperControls.start('exit');
         await animate(
           ':scope > div',
           { rotateY: 90 },
@@ -109,7 +114,7 @@ const TwistCard = () => {
         </motion.div>
       </div>
       <SandBar controls={controls} containerControls={controls} />
-      <Whispers activeInd={activeCardInd} controls={controls} />
+      <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
   );
 };
