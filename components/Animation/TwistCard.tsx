@@ -21,7 +21,7 @@ interface TCard {
 const cards: TCard[] = [
   {
     src: LogoPop,
-    alt: 'popularity football club image: barcelona',
+    alt: 'site logo',
   },
   {
     src: TeamPop,
@@ -29,7 +29,19 @@ const cards: TCard[] = [
   },
   {
     src: MoviePop,
-    alt: 'popularity football club image: barcelona',
+    alt: 'popularity Movie image: LOTR',
+  },
+  {
+    src: ActPop,
+    alt: 'popularity Actor image: LOTR',
+  },
+  {
+    src: SeriesPop,
+    alt: 'popularity Series image: LOTR',
+  },
+  {
+    src: YoutubeChanelPop,
+    alt: 'popularity Youtube image: LOTR',
   },
 ];
 
