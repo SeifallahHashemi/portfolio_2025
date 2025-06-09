@@ -1,6 +1,6 @@
 'use client';
 
-import SandBar from '@/components/Animation/SandBar';
+// import SandBar from '@/components/Animation/SandBar';
 import Whispers from '@/components/Animation/Whispers';
 import { sleep } from '@/lib/utils';
 import ActPop from '@/public/img/act-pop.png';
@@ -9,7 +9,12 @@ import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
 import SeriesPop from '@/public/img/series-pop.png';
 import YoutubeChanelPop from '@/public/img/yc-pop.png';
-import { motion, useAnimate, useAnimation } from 'motion/react';
+import {
+  AnimationControls,
+  motion,
+  useAnimate,
+  useAnimation,
+} from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
@@ -128,9 +133,62 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <SandBar controls={controls} containerControls={controls} />
+      {/*<SandBar controls={controls} containerControls={controls} />*/}
+      {cards.map((_card, index) => (
+        <SandBarTest
+          innerControls={controls}
+          outerControls={controls}
+          key={index}
+        />
+      ))}
       <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
+  );
+};
+
+const SandBarTest = ({
+  outerControls,
+  innerControls,
+}: {
+  outerControls: AnimationControls;
+  innerControls: AnimationControls;
+}) => {
+  const outerVariants = {
+    initial: { scaleY: 0.9 },
+    animate: { scaleY: 1 },
+  };
+  const innerVariants = {
+    initial: { top: '-100%' },
+    animate: { scaleY: '0%' },
+  };
+  return (
+    <div className={'absolute inset-0 flex flex-col justify-end'}>
+      <motion.div
+        variants={outerVariants}
+        initial={'initial'}
+        animate={outerControls}
+        transition={{
+          duration: 0.25,
+          ease: 'linear',
+        }}
+        className={
+          'sticky top-4 left-4 w-4 h-72 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
+        }
+      >
+        <motion.div
+          variants={innerVariants}
+          initial={'initial'}
+          animate={innerControls}
+          transition={{
+            duration: 2.5,
+            ease: 'easeInOut',
+          }}
+          className={
+            'absolute left-0 w-full h-full bg-zinc-200 dark:bg-zinc-900 rounded-4xl'
+          }
+        ></motion.div>
+      </motion.div>
+    </div>
   );
 };
 
