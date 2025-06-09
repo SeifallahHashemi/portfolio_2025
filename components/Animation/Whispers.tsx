@@ -15,7 +15,7 @@ interface WhispersProps {
 }
 
 const variants = {
-  initial: { filter: 'blur(0.5rem)', opacity: 0 },
+  initial: { filter: 'blur(1rem)', opacity: 0 },
   animate: { filter: 'blur(0)', opacity: 1 },
   exit: { filter: 'blur(0.5rem)', opacity: 0 },
 };
@@ -30,13 +30,11 @@ const Whispers = ({ activeInd, controls }: WhispersProps) => {
         variants={variants}
         transition={{
           duration: 1,
-          type: 'spring',
-          stiffness: 300,
-          damping: 100,
-          mass: 1,
+          type: 'tween',
+          ease: 'linear',
         }}
         className={
-          'w-full flex justify-center items-center font-bold font-iranSans text-base leading-relaxed'
+          'w-full flex justify-center items-center font-bold font-iranSans text-xl leading-relaxed'
         }
       >
         {sentence[activeInd]}
