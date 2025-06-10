@@ -53,59 +53,40 @@ const TwistCard = () => {
 
   useEffect(() => {
     let isMounted = true;
+
     const enterAnimation = async () => {
-      if (activeCardInd % 2 === 0) {
-        controls.start('animate');
-        whisperControls.start('animate');
-        await animate(
-          ':scope > div',
-          { rotateY: 0 },
-          { duration: 0.5, type: 'tween', ease: 'linear' }
-        );
-        await sleep(2000);
-        whisperControls.start('exit');
-        await animate(
-          ':scope > div',
-          { rotateY: 90 },
-          { duration: 0.5, type: 'tween', ease: 'linear' }
-        );
-        controls.set('initial');
-        setActiveCardInd((prevState) => {
-          if (prevState === cards.length - 1) {
-            return 0;
-          }
-          return prevState + 1;
-        });
-      } else {
-        controls.start('animate');
-        whisperControls.start('animate');
-        await animate(
-          ':scope > div',
-          { rotateY: 0 },
-          { duration: 0.5, type: 'tween', ease: 'linear' }
-        );
-        await sleep(2000);
-        whisperControls.start('exit');
-        await animate(
-          ':scope > div',
-          { rotateY: 90 },
-          { duration: 0.5, type: 'tween', ease: 'linear' }
-        );
-        controls.set('initial');
-        setActiveCardInd((prevState) => {
-          if (prevState === cards.length - 1) {
-            return 0;
-          }
-          return prevState + 1;
-        });
-      }
+      controls.start('animate');
+      whisperControls.start('animate');
+
+      await animate(
+        ':scope > div',
+        { rotateY: 0 },
+        { duration: 0.5, type: 'tween', ease: 'linear' }
+      );
+
+      await sleep(2000);
+
+      whisperControls.start('exit');
+
+      await animate(
+        ':scope > div',
+        { rotateY: 90 },
+        { duration: 0.5, type: 'tween', ease: 'linear' }
+      );
+
+      controls.set('initial');
+
+      setActiveCardInd((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
     };
+
     const loop = async () => {
       while (isMounted) {
         await enterAnimation();
       }
     };
+
     loop();
+
     return () => {
       isMounted = false;
     };
