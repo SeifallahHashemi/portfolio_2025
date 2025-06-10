@@ -4,16 +4,21 @@ import { AnimationControls, motion, useAnimate } from 'motion/react';
 import React, { useEffect } from 'react';
 
 const SandBar = ({
-  controls,
   containerControls,
   activeInd,
 }: {
-  controls: AnimationControls;
   containerControls: AnimationControls;
   activeInd: number;
 }) => {
   const [scope, animate] = useAnimate();
-  useEffect(() => {}, [activeInd]);
+  useEffect(() => {
+    const enterAnimation = async () => {
+      await animate(`:scope > div:nth-child(${activeInd + 1})`, {
+        top: '0%',
+      });
+    };
+    enterAnimation();
+  }, [activeInd, animate]);
   const variants = {
     initial: {
       top: '-100%',
@@ -47,7 +52,7 @@ const SandBar = ({
       <motion.div
         variants={variants}
         initial={'initial'}
-        animate={controls}
+        // animate={controls}
         transition={{
           duration: 2.5,
           ease: [0.36, 0, 0.64, 1],
