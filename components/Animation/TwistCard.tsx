@@ -53,14 +53,12 @@ const cards: TCard[] = [
 const TwistCard = () => {
   const [scope, animate] = useAnimate();
   const [activeCardInd, setActiveCardInd] = useState<number>(0);
-  const controls = useAnimation();
   const whisperControls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
 
     const enterAnimation = async () => {
-      controls.start('animate');
       whisperControls.start('animate');
 
       await animate(
@@ -79,8 +77,6 @@ const TwistCard = () => {
         { duration: 0.5, type: 'tween', ease: 'linear' }
       );
 
-      controls.set('initial');
-
       setActiveCardInd((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
     };
 
@@ -90,12 +86,12 @@ const TwistCard = () => {
       }
     };
 
-    loop();
+    loop().then();
 
     return () => {
       isMounted = false;
     };
-  }, [animate, activeCardInd, controls, whisperControls]);
+  }, [animate, activeCardInd, whisperControls]);
 
   return (
     <>
