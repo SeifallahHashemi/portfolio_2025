@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimationControls, motion, useAnimate } from 'motion/react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const SandBar = ({
   containerControls,
@@ -11,14 +11,19 @@ const SandBar = ({
   activeInd: number;
 }) => {
   const [scope, animate] = useAnimate();
+  const prevIndex = useRef(0);
   useEffect(() => {
     const enterAnimation = async () => {
+      await animate(`:scope > div:nth-child(${prevIndex.current + 1})`, {
+        top: '-100%',
+      });
       await animate(`:scope > div:nth-child(${activeInd + 1})`, {
         top: '0%',
       });
+      prevIndex.current = activeInd;
     };
     enterAnimation();
-  }, [activeInd, animate]);
+  }, [activeInd]);
   const variants = {
     initial: {
       top: '-100%',
@@ -49,18 +54,14 @@ const SandBar = ({
         'sticky top-4 left-4 w-4 h-12 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
       }
     >
-      <motion.div
-        variants={variants}
-        initial={'initial'}
-        // animate={controls}
-        transition={{
-          duration: 2.5,
-          ease: [0.36, 0, 0.64, 1],
+      <div
+        style={{
+          top: '-100%',
         }}
         className={
           'absolute left-0 w-full h-full bg-zinc-200 dark:bg-zinc-900 rounded-4xl'
         }
-      ></motion.div>
+      ></div>
     </motion.div>
   );
 };
