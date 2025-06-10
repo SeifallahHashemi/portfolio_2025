@@ -59,23 +59,25 @@ const TwistCard = () => {
     let isMounted = true;
 
     const enterAnimation = async () => {
-      whisperControls.start('animate');
-
-      await animate(
-        ':scope > div',
-        { rotateY: 0 },
-        { duration: 0.5, type: 'tween', ease: 'linear' }
-      );
+      await Promise.all([
+        whisperControls.start('animate'),
+        animate(
+          ':scope > div',
+          { rotateY: 0 },
+          { duration: 0.5, type: 'tween', ease: 'linear' }
+        ),
+      ]);
 
       await sleep(2000);
 
-      whisperControls.start('exit');
-
-      await animate(
-        ':scope > div',
-        { rotateY: 90 },
-        { duration: 0.5, type: 'tween', ease: 'linear' }
-      );
+      await Promise.all([
+        whisperControls.start('exit'),
+        animate(
+          ':scope > div',
+          { rotateY: 90 },
+          { duration: 0.5, type: 'tween', ease: 'linear' }
+        ),
+      ]);
 
       setActiveCardInd((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
     };
