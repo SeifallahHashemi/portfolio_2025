@@ -114,7 +114,7 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <Hourglass controls={controls} />
+      <Hourglass controls={controls} cards={cards} />
       <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
   );
