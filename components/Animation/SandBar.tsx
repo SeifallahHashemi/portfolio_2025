@@ -1,15 +1,19 @@
 'use client';
 
-import { AnimationControls, motion } from 'motion/react';
-import React from 'react';
+import { AnimationControls, motion, useAnimate } from 'motion/react';
+import React, { useEffect } from 'react';
 
 const SandBar = ({
   controls,
   containerControls,
+  activeInd,
 }: {
   controls: AnimationControls;
   containerControls: AnimationControls;
+  activeInd: number;
 }) => {
+  const [scope, animate] = useAnimate();
+  useEffect(() => {}, [activeInd]);
   const variants = {
     initial: {
       top: '-100%',
@@ -28,6 +32,7 @@ const SandBar = ({
   };
   return (
     <motion.div
+      ref={scope}
       variants={containerVariants}
       initial={'initial'}
       animate={containerControls}
