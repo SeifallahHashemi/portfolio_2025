@@ -131,16 +131,30 @@ const Hourglass = ({
   const prevIndex = useRef(0);
   useEffect(() => {
     const enterAnimation = async () => {
+      animate(`:scope > div:nth-child(${prevIndex.current + 1})`, {
+        height: '2rem',
+      });
       await animate(`:scope > div:nth-child(${prevIndex.current + 1}) > div`, {
         top: '-100%',
       });
+      await animate(
+        `:scope > div:nth-child(${activeInd + 1})`,
+        {
+          height: '4rem',
+        },
+        {
+          duration: 0.5,
+          type: 'tween',
+          ease: 'linear',
+        }
+      );
       await animate(
         `:scope > div:nth-child(${activeInd + 1}) > div`,
         {
           top: '0%',
         },
         {
-          duration: 2,
+          duration: 1.5,
           type: 'tween',
           ease: 'easeInOut',
         }
