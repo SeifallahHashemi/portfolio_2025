@@ -5,8 +5,11 @@ import React from 'react';
 const SandBar = () => {
   return (
     <div
+      style={{
+        height: '2rem',
+      }}
       className={
-        'w-4 h-12 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
+        'w-4 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
       }
     >
       <div
