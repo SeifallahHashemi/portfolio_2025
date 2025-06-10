@@ -120,10 +120,24 @@ const TwistCard = () => {
   );
 };
 
-const Hourglass = ({ controls }: { controls: AnimationControls }) => {
+const Hourglass = ({
+  controls,
+  cards,
+}: {
+  controls: AnimationControls;
+  cards: TCard[];
+}) => {
   return (
-    <div className={'absolute inset-0 flex justify-end'}>
-      <SandBar controls={controls} containerControls={controls} />
+    <div className={'absolute inset-0 flex flex-col justify-start items-end'}>
+      {cards.map((_card, index) => {
+        return (
+          <SandBar
+            key={index}
+            controls={controls}
+            containerControls={controls}
+          />
+        );
+      })}
     </div>
   );
 };
