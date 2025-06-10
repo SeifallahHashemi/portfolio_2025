@@ -41,15 +41,8 @@ const SandBar = ({
     },
   };
   return (
-    <motion.div
+    <div
       ref={scope}
-      variants={containerVariants}
-      initial={'initial'}
-      animate={containerControls}
-      transition={{
-        duration: 2.5,
-        ease: 'linear',
-      }}
       className={
         'sticky top-4 left-4 w-4 h-12 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
       }
@@ -62,7 +55,7 @@ const SandBar = ({
           'absolute left-0 w-full h-full bg-zinc-200 dark:bg-zinc-900 rounded-4xl'
         }
       ></div>
-    </motion.div>
+    </div>
   );
 };
 
