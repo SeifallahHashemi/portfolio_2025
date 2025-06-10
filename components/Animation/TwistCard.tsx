@@ -114,7 +114,11 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <Hourglass controls={controls} cards={cards} />
+      <Hourglass
+        controls={controls}
+        cards={cards}
+        activeCardIndex={activeCardInd}
+      />
       <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
   );
@@ -123,9 +127,11 @@ const TwistCard = () => {
 const Hourglass = ({
   controls,
   cards,
+  activeCardIndex,
 }: {
   controls: AnimationControls;
   cards: TCard[];
+  activeCardIndex: number;
 }) => {
   return (
     <div
@@ -137,8 +143,8 @@ const Hourglass = ({
         return (
           <SandBar
             key={index}
-            controls={controls}
             containerControls={controls}
+            activeInd={activeCardIndex}
           />
         );
       })}
