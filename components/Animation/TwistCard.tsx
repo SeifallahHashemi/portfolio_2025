@@ -10,13 +10,13 @@ import TeamPop from '@/public/img/pop.png';
 import SeriesPop from '@/public/img/series-pop.png';
 import YoutubeChanelPop from '@/public/img/yc-pop.png';
 import {
-  AnimationControls,
+  // AnimationControls,
   motion,
   useAnimate,
   useAnimation,
 } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface TCard {
   src: string | StaticImageData;
@@ -114,39 +114,42 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <Hourglass
-        controls={controls}
-        cards={cards}
-        activeCardIndex={activeCardInd}
-      />
+      <Hourglass cards={cards} activeInd={activeCardInd} />
       <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
   );
 };
 
 const Hourglass = ({
-  controls,
   cards,
-  activeCardIndex,
+  activeInd,
 }: {
-  controls: AnimationControls;
   cards: TCard[];
-  activeCardIndex: number;
+  activeInd: number;
 }) => {
+  const [scope, animate] = useAnimate();
+  const prevIndex = useRef(0);
+  useEffect(() => {
+    const enterAnimation = async () => {
+      await animate(`:scope > div:nth-child(${prevIndex.current + 1})`, {
+        top: '-100%',
+      });
+      await animate(`:scope > div:nth-child(${activeInd + 1})`, {
+        top: '0%',
+      });
+      prevIndex.current = activeInd;
+    };
+    enterAnimation().then();
+  }, [activeInd, animate]);
   return (
     <div
+      ref={scope}
       className={
         'absolute inset-0 flex flex-col justify-start items-end gap-y-1'
       }
     >
       {cards.map((_card, index) => {
-        return (
-          <SandBar
-            key={index}
-            containerControls={controls}
-            activeInd={activeCardIndex}
-          />
-        );
+        return <SandBar key={index} />;
       })}
     </div>
   );
