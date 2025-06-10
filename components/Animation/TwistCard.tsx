@@ -134,9 +134,17 @@ const Hourglass = ({
       await animate(`:scope > div:nth-child(${prevIndex.current + 1}) > div`, {
         top: '-100%',
       });
-      await animate(`:scope > div:nth-child(${activeInd + 1}) > div`, {
-        top: '0%',
-      });
+      await animate(
+        `:scope > div:nth-child(${activeInd + 1}) > div`,
+        {
+          top: '0%',
+        },
+        {
+          duration: 2,
+          type: 'tween',
+          ease: 'easeInOut',
+        }
+      );
       prevIndex.current = activeInd;
     };
     enterAnimation().then();
@@ -145,7 +153,7 @@ const Hourglass = ({
     <div
       ref={scope}
       className={
-        'absolute inset-0 flex flex-col justify-start items-end gap-y-1'
+        'absolute inset-0 flex flex-col justify-start items-end gap-y-1 px-4'
       }
     >
       {cards.map((_card, index) => {
