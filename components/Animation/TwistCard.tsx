@@ -128,7 +128,11 @@ const Hourglass = ({
   cards: TCard[];
 }) => {
   return (
-    <div className={'absolute inset-0 flex flex-col justify-start items-end'}>
+    <div
+      className={
+        'absolute inset-0 flex flex-col justify-start items-end gap-y-1'
+      }
+    >
       {cards.map((_card, index) => {
         return (
           <SandBar
