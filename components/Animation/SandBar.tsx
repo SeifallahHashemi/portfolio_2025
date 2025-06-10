@@ -6,7 +6,7 @@ const SandBar = () => {
   return (
     <div
       className={
-        'sticky top-4 left-4 w-4 h-12 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
+        'w-4 h-12 rounded-4xl bg-white/50 dark:bg-black/10 backdrop-blur-3xl border border-zinc-100 dark:border-zinc-900 overflow-clip origin-top'
       }
     >
       <div
