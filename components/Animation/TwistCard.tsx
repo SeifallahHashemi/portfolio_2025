@@ -9,7 +9,12 @@ import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
 import SeriesPop from '@/public/img/series-pop.png';
 import YoutubeChanelPop from '@/public/img/yc-pop.png';
-import { motion, useAnimate, useAnimation } from 'motion/react';
+import {
+  AnimationControls,
+  motion,
+  useAnimate,
+  useAnimation,
+} from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
@@ -109,9 +114,17 @@ const TwistCard = () => {
           />
         </motion.div>
       </div>
-      <SandBar controls={controls} containerControls={controls} />
+      <Hourglass controls={controls} />
       <Whispers activeInd={activeCardInd} controls={whisperControls} />
     </>
+  );
+};
+
+const Hourglass = ({ controls }: { controls: AnimationControls }) => {
+  return (
+    <div className={'absolute inset-0 flex justify-end'}>
+      <SandBar controls={controls} containerControls={controls} />
+    </div>
   );
 };
 
