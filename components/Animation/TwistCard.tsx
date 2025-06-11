@@ -152,7 +152,7 @@ const Hourglass = ({
           top: '0%',
         },
         {
-          duration: 1.8,
+          duration: 1.7,
           type: 'tween',
           ease: 'easeInOut',
         }
