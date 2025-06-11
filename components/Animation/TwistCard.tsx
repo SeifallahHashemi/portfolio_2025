@@ -9,12 +9,7 @@ import MoviePop from '@/public/img/pop-2.png';
 import TeamPop from '@/public/img/pop.png';
 import SeriesPop from '@/public/img/series-pop.png';
 import YoutubeChanelPop from '@/public/img/yc-pop.png';
-import {
-  // AnimationControls,
-  motion,
-  useAnimate,
-  useAnimation,
-} from 'motion/react';
+import { motion, useAnimate, useAnimation } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -93,7 +88,7 @@ const TwistCard = () => {
     return () => {
       isMounted = false;
     };
-  }, [animate, activeCardInd, whisperControls]);
+  }, [animate, whisperControls]);
 
   return (
     <>
@@ -152,7 +147,7 @@ const Hourglass = ({
           top: '0%',
         },
         {
-          duration: 1.5,
+          duration: 1.7,
           type: 'tween',
           ease: 'easeInOut',
         }
