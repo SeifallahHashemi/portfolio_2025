@@ -53,7 +53,9 @@ const TwistCard = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const enterAnimation = async () => {
+    const runSequence = async () => {
+      if (!isMounted) return;
+
       await Promise.all([
         whisperControls.start('animate'),
         animate(
@@ -75,15 +77,11 @@ const TwistCard = () => {
       ]);
 
       setActiveCardInd((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
+
+      requestAnimationFrame(runSequence); // یا setTimeout(runSequence, 0)
     };
 
-    const loop = async () => {
-      while (isMounted) {
-        await enterAnimation();
-      }
-    };
-
-    loop().then();
+    runSequence();
 
     return () => {
       isMounted = false;
