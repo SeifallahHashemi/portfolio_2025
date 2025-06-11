@@ -165,7 +165,7 @@ const Hourglass = ({
     <div
       ref={scope}
       className={
-        'absolute left-0 w-full h-fit flex flex-col justify-start items-end gap-y-1 px-4'
+        'absolute top-10 left-0 w-full h-fit flex flex-col justify-start items-end gap-y-1 px-4'
       }
     >
       {cards.map((_card, index) => {
