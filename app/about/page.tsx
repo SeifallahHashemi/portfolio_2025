@@ -6,7 +6,7 @@ import React from 'react';
 const AboutPage = () => {
   return (
     <main className={'flex flex-col'}>
-      <ScrollPresenceAnimator scrollYPosition={300}>
+      <ScrollPresenceAnimator>
         <TwistCard />
       </ScrollPresenceAnimator>
       <CodeTypingLoop />
