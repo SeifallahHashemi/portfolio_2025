@@ -32,7 +32,7 @@ export default function CodeTypingLoop() {
   const [code, setCode] = useState('');
   const indexRef = useRef(0);
   const deletingRef = useRef(false);
-  const rafRef = useRef<number | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const animate = () => {
     const index = indexRef.current;
@@ -41,41 +41,39 @@ export default function CodeTypingLoop() {
     if (!isDeleting && index < fullCode.length) {
       setCode((prev) => prev + fullCode[index]);
       indexRef.current += 1;
+      timeoutRef.current = setTimeout(animate, 60); //  سرعت تایپ
     } else if (!isDeleting && index === fullCode.length) {
-      // Pause before deleting
       deletingRef.current = true;
-      setTimeout(() => {
-        rafRef.current = requestAnimationFrame(animate);
-      }, 1000);
-      return;
+      timeoutRef.current = setTimeout(animate, 5000); //  تأخیر 2 ثانیه‌ای قبل از حذف
     } else if (isDeleting && index > 0) {
       setCode((prev) => prev.slice(0, -1));
       indexRef.current -= 1;
+      timeoutRef.current = setTimeout(animate, 40); //  سرعت حذف
     } else if (isDeleting && index === 0) {
-      // Pause before retyping
       deletingRef.current = false;
+      timeoutRef.current = setTimeout(animate, 2000); //  تأخیر قبل از شروع دوباره تایپ
     }
-
-    rafRef.current = requestAnimationFrame(animate);
   };
 
   useEffect(() => {
-    rafRef.current = requestAnimationFrame(animate);
+    animate();
+
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
   return (
     <div
       dir="ltr"
-      className="min-w-1/2 w-fit rounded-xl bg-[rgb(17,27,39)] min-h-96 overflow-clip mx-auto my-10"
+      className="w-[40rem] rounded-xl bg-[rgb(17,27,39)] min-h-96 overflow-x-auto mx-auto my-10"
     >
       <SyntaxHighlighter
         language="javascript"
         style={coldarkDark}
         wrapLines
         showLineNumbers={true}
+        wrapLongLines={true}
       >
         {code || ' '}
       </SyntaxHighlighter>
