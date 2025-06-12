@@ -12,18 +12,30 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const ScrollPresenceAnimator = ({
   children,
-  scrollYPosition = 300,
 }: {
   children: React.ReactNode;
-  scrollYPosition: number;
 }) => {
   const [isPresent, safeToRemove] = usePresence();
   const [toggleList, setToggleList] = useState<boolean>(true);
+  const [scrollYPosition, setScrollYPosition] = useState<number>(0);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll({
     target: ref,
     offset: ['start start', 'end end'],
   });
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      const pos = ref.current?.getBoundingClientRect()?.top ?? 0;
+      const calculatePos = pos + 200;
+      setScrollYPosition(calculatePos);
+    }
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const opacity = useTransform(scrollY, [0, scrollYPosition], [1, 0]);
 
   useMotionValueEvent(opacity, 'change', (latest) => {
