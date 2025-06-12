@@ -27,9 +27,14 @@ const ScrollPresenceAnimator = ({
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      const pos = ref.current?.getBoundingClientRect()?.top ?? 0;
-      const calculatePos = pos + 200;
-      setScrollYPosition(calculatePos);
+      const pos =
+        ref.current != null
+          ? (() => {
+              const rect = ref.current.getBoundingClientRect();
+              return rect.top + 300;
+            })()
+          : 0;
+      setScrollYPosition(pos);
     }
     return () => {
       isMounted = false;
