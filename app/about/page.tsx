@@ -1,3 +1,4 @@
+import CodeTypingLoop from '@/components/Animation/CodeTypingLoop';
 import TwistCard from '@/components/Animation/TwistCard';
 import ScrollPresenceAnimator from '@/components/Pages/ScrollPresenceAnimator';
 import React from 'react';
@@ -5,10 +6,10 @@ import React from 'react';
 const AboutPage = () => {
   return (
     <main className={'flex flex-col'}>
-      <ScrollPresenceAnimator>
+      <ScrollPresenceAnimator scrollYPosition={300}>
         <TwistCard />
       </ScrollPresenceAnimator>
-      <section className={'h-screen'}></section>
+      <CodeTypingLoop />
     </main>
   );
 };
