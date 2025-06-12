@@ -1,6 +1,5 @@
 'use client';
 
-import TwistCard from '@/components/Animation/TwistCard';
 import {
   AnimatePresence,
   motion,
@@ -11,7 +10,7 @@ import {
 } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
 
-const InformationAnimations = () => {
+const InformationAnimations = ({ children }: { children: React.ReactNode }) => {
   const [isPresent, safeToRemove] = usePresence();
   const [toggleList, setToggleList] = useState<boolean>(true);
   const ref = useRef<HTMLDivElement>(null);
@@ -45,7 +44,7 @@ const InformationAnimations = () => {
               opacity,
             }}
           >
-            <TwistCard />
+            {children}
           </motion.div>
         )}
       </section>
