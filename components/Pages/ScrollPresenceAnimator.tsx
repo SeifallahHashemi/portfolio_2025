@@ -10,7 +10,11 @@ import {
 } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
 
-const InformationAnimations = ({ children }: { children: React.ReactNode }) => {
+const ScrollPresenceAnimator = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [isPresent, safeToRemove] = usePresence();
   const [toggleList, setToggleList] = useState<boolean>(true);
   const ref = useRef<HTMLDivElement>(null);
@@ -52,4 +56,4 @@ const InformationAnimations = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default InformationAnimations;
+export default ScrollPresenceAnimator;
