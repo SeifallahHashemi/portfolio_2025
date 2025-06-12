@@ -1,34 +1,27 @@
 'use client';
 
+import { useInView } from 'motion/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { coldarkDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { duotoneForest } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const fullCode = `
-import React from "react";
-import uniquePropHOC from "./lib/unique-prop-hoc";
+import React from 'react';
 
-class Expire extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { component: props.children }
-    }
-    componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                component: null
-            });
-        }, this.props.time || this.props.seconds * 1000);
-    }
-    render() {
-        return this.state.component;
-    }
-}
+const CodeTypingLoop = () => {
+  return (
+    <div>
+      سلام بچه ها
+    </div>
+  );
+};
 
-export default uniquePropHOC(["time", "seconds"])(Expire);
+export default CodeTypingLoop;
 `;
 
-export default function CodeTypingLoop() {
+const CodeTypingLoop = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
   const [code, setCode] = useState('');
   const indexRef = useRef(0);
   const deletingRef = useRef(false);
@@ -56,21 +49,28 @@ export default function CodeTypingLoop() {
   };
 
   useEffect(() => {
+    if (!isInView) return;
     animate();
 
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, []);
+  }, [isInView]);
 
   return (
     <div
+      ref={ref}
       dir="ltr"
-      className="w-[40rem] rounded-xl bg-[rgb(17,27,39)] min-h-96 overflow-x-auto mx-auto my-10"
+      className="w-[36rem] rounded-xl bg-white/50 dark:bg-black/35 backdrop-blur-3xl min-h-96 overflow-x-auto mx-auto my-10 p-4"
     >
       <SyntaxHighlighter
         language="javascript"
-        style={coldarkDark}
+        style={{
+          ...duotoneForest,
+          'pre[class*="language-"]': {
+            background: 'transparent',
+          },
+        }}
         wrapLines
         showLineNumbers={true}
         wrapLongLines={true}
@@ -79,4 +79,6 @@ export default function CodeTypingLoop() {
       </SyntaxHighlighter>
     </div>
   );
-}
+};
+
+export default CodeTypingLoop;
