@@ -5,8 +5,8 @@ import React from 'react';
 interface Props {
   className: string;
 }
-const ParallaxText = ({ className }: Props): React.ReactElement => {
+const ParallaxLogo = ({ className }: Props): React.ReactElement => {
   return <div className={className}></div>;
 };
 
-export default ParallaxText;
+export default ParallaxLogo;
