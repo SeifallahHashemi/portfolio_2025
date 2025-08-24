@@ -12,8 +12,12 @@ const logos = [CSS, NextJsSvg, ReactSVG, ReduxSvg, TailwindSvg, TypescriptSvg];
 
 interface Props {
   className: string;
+  baseVelocity: number;
 }
-const ParallaxLogo = ({ className }: Props): React.ReactElement => {
+const ParallaxLogo = ({
+  className,
+  baseVelocity = 100,
+}: Props): React.ReactElement => {
   return <div className={className}></div>;
 };
 
