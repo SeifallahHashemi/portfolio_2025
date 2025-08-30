@@ -35,6 +35,8 @@ const ParallaxLogo = ({
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
+
+  const x = useTransform(baseX, (v) => `${v}px`);
   return <div className={className}></div>;
 };
 
