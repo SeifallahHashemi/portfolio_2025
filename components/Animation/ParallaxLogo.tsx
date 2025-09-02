@@ -58,10 +58,10 @@ const ParallaxLogo = ({
   return (
     <div className="overflow-hidden tracking-tighter leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
       <motion.div className="flex flex-nowrap whitespace-nowrap" style={{ x }}>
-        <span className={'block mr-8'}>{children} </span>
-        <span className={'block mr-8'}>{children} </span>
-        <span className={'block mr-8'}>{children} </span>
-        <span className={'block mr-8'}>{children} </span>
+        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
+        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
+        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
+        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
       </motion.div>
     </div>
   );
