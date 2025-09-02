@@ -21,13 +21,9 @@ import React, { useRef } from 'react';
 const logos = [CSS, NextJsSvg, ReactSVG, ReduxSvg, TailwindSvg, TypescriptSvg];
 
 interface Props {
-  children: string;
   baseVelocity: number;
 }
-const ParallaxLogo = ({
-  children,
-  baseVelocity = 100,
-}: Props): React.ReactElement => {
+const ParallaxLogo = ({ baseVelocity = 100 }: Props): React.ReactElement => {
   const baseX = useMotionValue<number>(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -39,11 +35,11 @@ const ParallaxLogo = ({
     clamp: false,
   });
 
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(-100, 100, v)}%`);
 
   const directionFactor = useRef<number>(1);
 
-  useAnimationFrame((_, delta) => {
+  useAnimationFrame((timestamp, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
     if (velocityFactor.get() < 0) {
@@ -56,12 +52,14 @@ const ParallaxLogo = ({
     baseX.set(baseX.get() + moveBy);
   });
   return (
-    <div className="overflow-hidden tracking-tighter leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
-      <motion.div className="flex flex-nowrap whitespace-nowrap" style={{ x }}>
-        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
-        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
-        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
-        <span className={'block mr-8 text-6xl font-semibold'}>{children} </span>
+    <div className="overflow-hidden tracking-tighter leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap w-full">
+      <motion.div
+        className="flex flex-nowrap whitespace-nowrap w-full space-x-10"
+        style={{ x }}
+      >
+        {logos.map((Logo, ind) => {
+          return <Logo key={ind} />;
+        })}
       </motion.div>
     </div>
   );
