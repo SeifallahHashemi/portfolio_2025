@@ -6,23 +6,26 @@ import ReactSVG from '@/components/Icons/react-svg';
 import ReduxSvg from '@/components/Icons/redux-svg';
 import TailwindSvg from '@/components/Icons/tailwind-svg';
 import TypescriptSvg from '@/components/Icons/typescript-svg';
+import { wrap } from 'motion';
 import {
+  motion,
+  useAnimationFrame,
   useMotionValue,
   useScroll,
   useSpring,
   useTransform,
   useVelocity,
 } from 'motion/react';
-import React from 'react';
+import React, { useRef } from 'react';
 
 const logos = [CSS, NextJsSvg, ReactSVG, ReduxSvg, TailwindSvg, TypescriptSvg];
 
 interface Props {
-  className: string;
+  children: string;
   baseVelocity: number;
 }
 const ParallaxLogo = ({
-  className,
+  children,
   baseVelocity = 100,
 }: Props): React.ReactElement => {
   const baseX = useMotionValue<number>(0);
@@ -36,8 +39,32 @@ const ParallaxLogo = ({
     clamp: false,
   });
 
-  const x = useTransform(baseX, (v) => `${v}px`);
-  return <div className={className}></div>;
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
+  const directionFactor = useRef<number>(1);
+
+  useAnimationFrame((timestamp, delta) => {
+    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+
+    if (velocityFactor.get() < 0) {
+      directionFactor.current = -1;
+    } else if (velocityFactor.get() > 0) {
+      directionFactor.current = 1;
+    }
+
+    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    baseX.set(baseX.get() + moveBy);
+  });
+  return (
+    <div className="overflow-hidden tracking-tighter leading-[0.8] m-0 whitespace-nowrap flex flex-nowrap">
+      <motion.div className="flex flex-nowrap whitespace-nowrap" style={{ x }}>
+        <span className={'block mr-8'}>{children} </span>
+        <span className={'block mr-8'}>{children} </span>
+        <span className={'block mr-8'}>{children} </span>
+        <span className={'block mr-8'}>{children} </span>
+      </motion.div>
+    </div>
+  );
 };
 
 export default ParallaxLogo;
