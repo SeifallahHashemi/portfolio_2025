@@ -11,12 +11,14 @@ import React, { RefObject, useEffect, useRef } from 'react';
 
 type AnimateSectionProps = HTMLMotionProps<'section'> & {
   className?: string;
+  cClassName?: string;
   children?: Readonly<React.ReactNode>;
   delay?: number;
 };
 
 const AnimateSection = ({
   className,
+  cClassName,
   delay,
   children,
 }: AnimateSectionProps) => {
@@ -50,7 +52,7 @@ const AnimateSection = ({
       transition={{ duration: 0.5 }}
       className={cn('w-full', className)}
     >
-      <div className={'w-full max-w-full'}>{children}</div>
+      <div className={cClassName}>{children}</div>
     </motion.div>
   );
 };
