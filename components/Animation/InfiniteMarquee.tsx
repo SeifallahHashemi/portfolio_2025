@@ -1,7 +1,6 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
 import Marquee from '@/components/Animation/Marquee';
 import ParallaxLogo from '@/components/Animation/ParallaxLogo';
-import VelocityMarquee from '@/components/Animation/VelocityMarquee';
 import React from 'react';
 
 const InfiniteMarquee = () => {
