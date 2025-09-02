@@ -1,14 +1,19 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { AnimationProps, motion, useAnimation, useInView } from 'motion/react';
+import {
+  motion,
+  useAnimation,
+  useInView,
+  type HTMLMotionProps,
+} from 'motion/react';
 import React, { RefObject, useEffect, useRef } from 'react';
 
-interface AnimateSectionProps extends AnimationProps {
+type AnimateSectionProps = HTMLMotionProps<'section'> & {
   className?: string;
   children?: Readonly<React.ReactNode>;
   delay?: number;
-}
+};
 
 const AnimateSection = ({
   className,
@@ -45,7 +50,7 @@ const AnimateSection = ({
       transition={{ duration: 0.5 }}
       className={cn('w-full', className)}
     >
-      <div>{children}</div>
+      <div className={'w-full max-w-full'}>{children}</div>
     </motion.div>
   );
 };
