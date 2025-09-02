@@ -20,9 +20,12 @@ const InfiniteMarquee = () => {
           مهارت ها
         </h2>
       </AnimateSection>
-      <AnimateSection delay={1} className={'hidden md:flex'}>
-        <ParallaxLogo baseVelocity={-5}>Framer Motion</ParallaxLogo>
-        {/*<VelocityMarquee />*/}
+      <AnimateSection
+        delay={1}
+        className={'hidden md:flex w-full'}
+        cClassName={'w-full max-w-full'}
+      >
+        <ParallaxLogo baseVelocity={-6}></ParallaxLogo>
       </AnimateSection>
       <AnimateSection delay={1} className={'w-full flex md:hidden'}>
         <Marquee />
