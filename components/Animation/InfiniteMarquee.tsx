@@ -1,5 +1,6 @@
 import AnimateSection from '@/components/Animation/AnimateSection';
 import Marquee from '@/components/Animation/Marquee';
+import ParallaxLogo from '@/components/Animation/ParallaxLogo';
 import VelocityMarquee from '@/components/Animation/VelocityMarquee';
 import React from 'react';
 
@@ -20,7 +21,8 @@ const InfiniteMarquee = () => {
         </h2>
       </AnimateSection>
       <AnimateSection delay={1} className={'hidden md:flex'}>
-        <VelocityMarquee />
+        <ParallaxLogo baseVelocity={-5}>Framer Motion</ParallaxLogo>
+        {/*<VelocityMarquee />*/}
       </AnimateSection>
       <AnimateSection delay={1} className={'w-full flex md:hidden'}>
         <Marquee />
