@@ -38,7 +38,7 @@ const AnimateSection = ({
           controls.start('animate');
         },
         (delay ?? 0) * 1000
-      ); // تبدیل delay به میلی‌ثانیه
+      );
 
       return () => clearTimeout(timeout);
     }
