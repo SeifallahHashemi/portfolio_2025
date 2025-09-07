@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, AnimationControls, motion } from 'motion/react';
+import { AnimatePresence, motion, useAnimationControls } from 'motion/react';
 import React from 'react';
 
 const sentence = [
@@ -14,7 +14,7 @@ const sentence = [
 
 interface WhispersProps {
   activeInd: number;
-  controls: AnimationControls;
+  controls: ReturnType<typeof useAnimationControls>;
 }
 
 const variants = {
