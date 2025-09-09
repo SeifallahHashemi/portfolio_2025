@@ -1,4 +1,4 @@
-import CodeTypingLoop from '@/components/Animation/CodeTypingLoop';
+// import CodeTypingLoop from '@/components/Animation/CodeTypingLoop';
 import TwistCard from '@/components/Animation/TwistCard';
 import ScrollPresenceAnimator from '@/components/Pages/ScrollPresenceAnimator';
 import React from 'react';
@@ -9,7 +9,7 @@ const AboutPage = () => {
       <ScrollPresenceAnimator>
         <TwistCard />
       </ScrollPresenceAnimator>
-      <CodeTypingLoop />
+      {/*<CodeTypingLoop />*/}
     </main>
   );
 };
